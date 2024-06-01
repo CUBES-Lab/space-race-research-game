@@ -77,33 +77,22 @@ namespace KartGame.Track
             {
                 switch (initialDisplayOptions[i])
                 {
-                    case DisplayOptions.Race:
-                        m_DisplayCalls.Add(DisplayRaceTime);
-                        break;
+
                     case DisplayOptions.AllLaps:
                         m_DisplayCalls.Add(DisplayAllLapTimes);
                         break;
-                    case DisplayOptions.FinishedLaps:
-                        m_DisplayCalls.Add(DisplayFinishedLapTimes);
-                        break;
+                    
                     case DisplayOptions.FinishedAndCurrentLaps:
                         m_DisplayCalls.Add(DisplayFinishedAndCurrentLapTimes);
                         break;
                     case DisplayOptions.CurrentLap:
                         m_DisplayCalls.Add(DisplayCurrentLapTime);
                         break;
-                    case DisplayOptions.SessionBestLap:
-                        m_DisplayCalls.Add(DisplaySessionBestLapTime);
+                    case DisplayOptions.FinishedLaps:
+                        m_DisplayCalls.Add(DisplayFinishedLapTimes);
                         break;
-                    case DisplayOptions.SessionBestRace:
-                        m_DisplayCalls.Add(DisplaySessionBestRaceTime);
-                        break;
-                    case DisplayOptions.HistoricalBestLap:
-                        m_DisplayCalls.Add(DisplayHistoricalBestLapTime);
-                        break;
-                    case DisplayOptions.HistoricalBestRace:
-                        m_DisplayCalls.Add(DisplayHistoricalBestRaceTime);
-                        break;
+                    
+                   
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -131,7 +120,7 @@ namespace KartGame.Track
 
         void DisplayFakeRecordTime()
         {
-            m_StringBuilder.AppendLine($"Avg Record Lap: 98.1");
+            m_StringBuilder.AppendLine($"Performance");
         }
 
         void DisplayRaceTime()
@@ -260,6 +249,8 @@ namespace KartGame.Track
         /// </summary>
         /// <param name="newDisplay">A collection of the new options for the display.</param>
         /// <exception cref="ArgumentOutOfRangeException">One or more of the display options is not valid.</exception>
+
+
         public void RebindDisplayOptions(List<DisplayOptions> newDisplay)
         {
             m_DisplayCalls.Clear();
@@ -268,43 +259,33 @@ namespace KartGame.Track
             for (int i = 0; i < newDisplay.Count; i++)
             {
                 switch (newDisplay[i])
+
                 {
-                    case DisplayOptions.Race:
-                        m_DisplayCalls.Add(DisplayRaceTime);
-                        break;
                     case DisplayOptions.AllLaps:
                         m_DisplayCalls.Add(DisplayAllLapTimes);
                         break;
+
                     case DisplayOptions.FinishedLaps:
                         m_DisplayCalls.Add(DisplayFinishedLapTimes);
                         break;
                     case DisplayOptions.FinishedAndCurrentLaps:
                         m_DisplayCalls.Add(DisplayFinishedAndCurrentLapTimes);
                         break;
+                    
                     case DisplayOptions.CurrentLap:
                         m_DisplayCalls.Add(DisplayCurrentLapTime);
                         break;
-                    case DisplayOptions.SessionBestLap:
-                        m_DisplayCalls.Add(DisplaySessionBestLapTime);
-                        break;
-                    case DisplayOptions.SessionBestRace:
-                        m_DisplayCalls.Add(DisplaySessionBestRaceTime);
-                        break;
-                    case DisplayOptions.HistoricalBestLap:
-                        m_DisplayCalls.Add(DisplayHistoricalBestLapTime);
-                        break;
-                    case DisplayOptions.HistoricalBestRace:
-                        m_DisplayCalls.Add(DisplayHistoricalBestRaceTime);
-                        break;
+                  
+                    
+                    
+                    
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
             }
         }
 
-        /// <summary>
-        /// Call this function to change the racer about which the information is being displayed.
-        /// </summary>
+
         public void RebindRacer(IRacer newRacer)
         {
             m_Racer = newRacer;

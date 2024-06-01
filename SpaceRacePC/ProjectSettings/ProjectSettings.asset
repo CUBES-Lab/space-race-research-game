@@ -140,7 +140,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 1.2.2
+  bundleVersion: 1.2.3
   preloadedAssets:
   - {fileID: 11400000, guid: fa33a94c7bcd88842902b2c2fa8fe105, type: 2}
   metroInputSource: 0
@@ -694,7 +694,7 @@ PlayerSettings:
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 1
+  webGLCompressionFormat: 2
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
@@ -782,7 +782,7 @@ PlayerSettings:
   metroSplashScreenUseBackgroundColor: 0
   platformCapabilities:
     WindowsStoreApps:
-      CodeGeneration: False
+      EnterpriseAuthentication: False
       OfflineMapsManagement: False
       HumanInterfaceDevice: False
       Location: False
@@ -816,10 +816,10 @@ PlayerSettings:
       PointOfService: False
       RecordedCallsFolder: False
       Contacts: False
-      Proximity: False
       InternetClient: False
+      CodeGeneration: False
       BackgroundMediaPlayback: False
-      EnterpriseAuthentication: False
+      Proximity: False
   metroTargetDeviceFamilies:
     Desktop: False
     Holographic: False
