@@ -91,116 +91,119 @@ public class CollectableManager : MonoBehaviour
     {
         Shuffle(tracks);
 
-        Vector3 capPos;
-        for (int i = 0; i < Mathf.Min(capClustersPerLap, tracks.Count); i++)
-        {
-            if (tracks[i].name.Contains("Curve"))
-            {
-                capPos = tracks[i].position + Vector3.up * 2f;
-            }
-            else
-            {
-                capPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 2f;
-            }
+        //Vector3 capPos;
+        //for (int i = 0; i < Mathf.Min(capClustersPerLap, tracks.Count); i++)
+        //{
+        //    if (tracks[i].name.Contains("Curve"))
+        //    {
+        //        capPos = tracks[i].position + Vector3.up * 2f;
+        //    }
+        //    else
+        //    {
+        //        capPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 2f;
+        //    }
 
-            if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
-            {
-                for (int j = 0; j < clusterSize; j++)
-                {
-                    if (useGeneric)
-                    {
-                        Quaternion rot;
-                        if (tracks[i].GetComponent<TrackDirection>().flipped)
-                        {
-                            rot = Quaternion.Euler(
-                                tracks[i].rotation.eulerAngles.x,
-                                tracks[i].rotation.eulerAngles.y + 180f,
-                                tracks[i].rotation.eulerAngles.z);
-                        }
-                        else
-                        {
-                            rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
-                        }
-                        collectables.Add(
-                            Instantiate(drThundeCapPrefab,
-                                capPos,
-                                rot,
-                                collectParent.transform));
-                    }
-                    else
-                    {
+        //    if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
+        //    {
+        //        for (int j = 0; j < clusterSize; j++)
+        //        {
+        //            if (useGeneric)
+        //            {
+        //                Quaternion rot;
+        //                if (tracks[i].GetComponent<TrackDirection>().flipped)
+        //                {
+        //                    rot = Quaternion.Euler(
+        //                        tracks[i].rotation.eulerAngles.x,
+        //                        tracks[i].rotation.eulerAngles.y + 180f,
+        //                        tracks[i].rotation.eulerAngles.z);
+        //                }
+        //                else
+        //                {
+        //                    rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
+        //                }
+        //                collectables.Add(
+        //                    Instantiate(drThundeCapPrefab,
+        //                        capPos,
+        //                        rot,
+        //                        collectParent.transform));
+        //            }
+        //            else
+        //            {
 
-                        Quaternion rot;
-                        if (tracks[i].GetComponent<TrackDirection>().flipped)
-                        {
-                            rot = Quaternion.Euler(
-                                tracks[i].rotation.eulerAngles.x,
-                                tracks[i].rotation.eulerAngles.y + 180f,
-                                tracks[i].rotation.eulerAngles.z);
-                        }
-                        else
-                        {
-                            rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
-                        }
+        //                Quaternion rot;
+        //                if (tracks[i].GetComponent<TrackDirection>().flipped)
+        //                {
+        //                    rot = Quaternion.Euler(
+        //                        tracks[i].rotation.eulerAngles.x,
+        //                        tracks[i].rotation.eulerAngles.y + 180f,
+        //                        tracks[i].rotation.eulerAngles.z);
+        //                }
+        //                else
+        //                {
+        //                    rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
+        //                }
 
-                        collectables.Add(
-                            Instantiate(cokeCapPrefab,
-                                capPos,
-                                rot,
-                                collectParent.transform));
-                    }
-                    capPos.z += clusterOffset;
-                }
-            }
-            else
-            {
-                for (int j = 0; j < clusterSize; j++)
-                {
-                    if (useGeneric)
-                    {
-                        Quaternion rot;
-                        if (tracks[i].GetComponent<TrackDirection>().flipped)
-                        {
-                            rot = Quaternion.Euler(
-                                tracks[i].rotation.eulerAngles.x,
-                                tracks[i].rotation.eulerAngles.y + 180f,
-                                tracks[i].rotation.eulerAngles.z);
-                        }
-                        else
-                        {
-                            rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
-                        }
-                        collectables.Add(
-                            Instantiate(drThundeCapPrefab,
-                                capPos,
-                                rot,
-                                collectParent.transform));
-                    }
-                    else
-                    {
-                        Quaternion rot;
-                        if (tracks[i].GetComponent<TrackDirection>().flipped)
-                        {
-                            rot = Quaternion.Euler(
-                                tracks[i].rotation.eulerAngles.x,
-                                tracks[i].rotation.eulerAngles.y + 180f,
-                                tracks[i].rotation.eulerAngles.z);
-                        }
-                        else
-                        {
-                            rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
-                        }
-                        collectables.Add(
-                            Instantiate(cokeCapPrefab,
-                                capPos,
-                                rot,
-                                collectParent.transform));
-                    }
-                    capPos.x += clusterOffset;
-                }
-            }
+        //                collectables.Add(
+        //                    Instantiate(cokeCapPrefab,
+        //                        capPos,
+        //                        rot,
+        //                        collectParent.transform));
+        //            }
+        //            capPos.z += clusterOffset;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        for (int j = 0; j < clusterSize; j++)
+        //        {
+        //            if (useGeneric)
+        //            {
+        //                Quaternion rot;
+        //                if (tracks[i].GetComponent<TrackDirection>().flipped)
+        //                {
+        //                    rot = Quaternion.Euler(
+        //                        tracks[i].rotation.eulerAngles.x,
+        //                        tracks[i].rotation.eulerAngles.y + 180f,
+        //                        tracks[i].rotation.eulerAngles.z);
+        //                }
+        //                else
+        //                {
+        //                    rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
+        //                }
+        //                collectables.Add(
+        //                    Instantiate(drThundeCapPrefab,
+        //                        capPos,
+        //                        rot,
+        //                        collectParent.transform));
+        //            }
+        //            else
+        //            {
+        //                Quaternion rot;
+        //                if (tracks[i].GetComponent<TrackDirection>().flipped)
+        //                {
+        //                    rot = Quaternion.Euler(
+        //                        tracks[i].rotation.eulerAngles.x,
+        //                        tracks[i].rotation.eulerAngles.y + 180f,
+        //                        tracks[i].rotation.eulerAngles.z);
+        //                }
+        //                else
+        //                {
+        //                    rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
+        //                }
+        //                collectables.Add(
+        //                    Instantiate(cokeCapPrefab,
+        //                        capPos,
+        //                        rot,
+        //                        collectParent.transform));
+        //            }
+        //            capPos.x += clusterOffset;
+        //        }
+        //    }
 
-        }
+        //}
+
+        GameObject gameManager = GameObject.Find("GameManager");
+        GameModeManager gameModeManager = gameManager.GetComponent<GameModeManager>();
 
         Vector3 coinPos;
         // Place coins up until coinClusterPerLap or all the track space has been used up
@@ -220,8 +223,16 @@ public class CollectableManager : MonoBehaviour
                 coinPrefab.transform.rotation.eulerAngles.y + tracks[i].rotation.eulerAngles.y,
                 coinPrefab.transform.rotation.eulerAngles.z);
 
+            float laneDirectionScalar = Random.value > 0.5f ? 1.0f : -1.0f;
+
             if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
             {
+                // Randomize the lane
+                if (gameModeManager.GetUseRandomizedCoins())
+                {
+                    coinPos += Vector3.right * laneDirectionScalar * 3.0f;
+                }
+
                 for (int j = 0; j < clusterSize; j++)
                 {
                     collectables.Add(
@@ -235,6 +246,12 @@ public class CollectableManager : MonoBehaviour
             }
             else
             {
+                // Randomize the lane
+                if (gameModeManager.GetUseRandomizedCoins())
+                {
+                    coinPos += Vector3.forward * laneDirectionScalar * 3.0f;
+                }
+
                 for (int j = 0; j < clusterSize; j++)
                 {
                     collectables.Add(

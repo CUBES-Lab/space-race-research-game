@@ -199,6 +199,9 @@ Light:
   m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &39015589
 Transform:
   m_ObjectHideFlags: 0
@@ -952,7 +955,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 71.15
+  m_fontSize: 71.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2141,7 +2144,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 650654393}
         m_TargetAssemblyTypeName: GroupToggleScript, Assembly-CSharp
-        m_MethodName: ToggleGroupText
+        m_MethodName: IncrementGroup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2345,6 +2348,7 @@ GameObject:
   - component: {fileID: 1531878040}
   - component: {fileID: 1531878041}
   - component: {fileID: 1531878042}
+  - component: {fileID: 1531878043}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2423,6 +2427,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highInvolvementMat: {fileID: 2100000, guid: 1214ad3f2f1af814abbfd58d0984a26b, type: 2}
   lowInvolvementMat: {fileID: 2100000, guid: 62405afe31699814085a70139ee3ea3a, type: 2}
+--- !u!114 &1531878043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531878037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c3e1bf4ffe8bc46b576848ede7af97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1551384603
 GameObject:
   m_ObjectHideFlags: 0
