@@ -169,4 +169,4 @@ MonoBehaviour:
   m_Name: WebGL Settings
   m_EditorClassIdentifier: 
   m_LoaderManagerInstance: {fileID: -4058927964146720737}
-  m_InitManagerOnStart: 1
+  m_InitManagerOnStart: 0
