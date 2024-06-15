@@ -21,6 +21,6 @@ MonoBehaviour:
     hopHeight: 0
     reverseAcceleration: 0
     reverseSpeed: 0
-    topSpeed: -12
+    topSpeed: 0
     turnSpeed: 0
     weight: 0
