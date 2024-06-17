@@ -43,14 +43,23 @@ namespace KartGame.KartSystems
 
         bool m_FixedUpdateHappened;
 
-        void Update()
+        public bool m_alwaysAccelerating = true;
+
+        void Update ()
         {
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (m_alwaysAccelerating)
+            {
                 m_Acceleration = 1f;
-            else if (Input.GetKey(KeyCode.DownArrow))
-                m_Acceleration = -1f;
+            }
             else
-                m_Acceleration = 0f;
+            {
+                if (Input.GetKey(KeyCode.UpArrow))
+                    m_Acceleration = 1f;
+                else if (Input.GetKey(KeyCode.DownArrow))
+                    m_Acceleration = -1f;
+                else
+                    m_Acceleration = 0f;
+            }
 
             if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
                 m_Steering = -1f;
