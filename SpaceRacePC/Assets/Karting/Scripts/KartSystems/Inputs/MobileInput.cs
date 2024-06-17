@@ -3,9 +3,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 namespace KartGame.KartSystems
 {
-    /// <summary>
-    /// A basic gamepad implementation of the IInput interface for all the input information a kart needs.
-    /// </summary>
+    
     public class MobileInput : MonoBehaviour, IInput
     {
         public float Acceleration

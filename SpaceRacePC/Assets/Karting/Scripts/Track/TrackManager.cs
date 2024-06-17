@@ -25,7 +25,7 @@ namespace KartGame.Track
         private IRacer m_racer;
 
         bool m_IsRaceRunning;
-        bool m_IsRaceStopped;
+        bool m_IsRaceStopped; // need to trigger the event here
         Dictionary<IRacer, Checkpoint> m_RacerNextCheckpoints = new Dictionary<IRacer, Checkpoint> (16);
         TrackRecord m_SessionBestLap = TrackRecord.CreateDefault ();
         TrackRecord m_SessionBestRace = TrackRecord.CreateDefault ();

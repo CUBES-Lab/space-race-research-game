@@ -111,8 +111,37 @@
               });
             };
 
-      document.body.appendChild(script);
+        document.body.appendChild(script);
+
+       // The code chatGPT generated - AKA mycode
+
+       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build.json", { onProgress: UnityProgress });
+
+       function sendDataToGoogleDrive(data) {
+            var xhr = new XMLHttpRequest();
+            var url = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec"; // Replace with your Google Apps Script URL
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log("Data sent successfully");
+                } else if (xhr.readyState == 4) {
+                    console.error("Error: " + xhr.responseText);
+                }
+            };
+            xhr.send("data=" + encodeURIComponent(data));
+       }
+
+       function onGameFinished(data) {
+            sendDataToGoogleDrive(data);
+       }
 
     </script>
+
+
+
+
+
+
   </body>
 </html>

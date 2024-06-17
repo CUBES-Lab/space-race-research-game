@@ -118,7 +118,7 @@ namespace KartGame.Track
 
         void DisplayFakeRecordTime()
         {
-            m_StringBuilder.AppendLine($"Performance");
+            m_StringBuilder.AppendLine($"UUID: Put the generated");
         }
 
         void DisplayRaceTime()

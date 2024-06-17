@@ -1,12 +1,12 @@
-﻿using System.Collections;
+﻿
+using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace KartGame.KartSystems
 {
-    /// <summary>
-    /// A basic keyboard implementation of the IInput interface for all the input information a kart needs.
-    /// </summary>
+
     public class KeyboardInput : MonoBehaviour, IInput
     {
         public float Acceleration
@@ -43,23 +43,23 @@ namespace KartGame.KartSystems
 
         bool m_FixedUpdateHappened;
 
-        void Update ()
+        void Update()
         {
-            if (Input.GetKey (KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow))
                 m_Acceleration = 1f;
-            else if (Input.GetKey (KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.DownArrow))
                 m_Acceleration = -1f;
             else
                 m_Acceleration = 0f;
 
-            if (Input.GetKey (KeyCode.LeftArrow) && !Input.GetKey (KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
                 m_Steering = -1f;
-            else if (!Input.GetKey (KeyCode.LeftArrow) && Input.GetKey (KeyCode.RightArrow))
+            else if (!Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
                 m_Steering = 1f;
             else
                 m_Steering = 0f;
 
-            m_HopHeld = Input.GetKey (KeyCode.Space);
+            m_HopHeld = Input.GetKey(KeyCode.Space);
 
             if (m_FixedUpdateHappened)
             {
@@ -70,12 +70,12 @@ namespace KartGame.KartSystems
                 m_FirePressed = false;
             }
 
-            m_HopPressed |= Input.GetKeyDown (KeyCode.Space);
-            m_BoostPressed |= Input.GetKeyDown (KeyCode.RightShift);
-            m_FirePressed |= Input.GetKeyDown (KeyCode.RightControl);
+            m_HopPressed |= Input.GetKeyDown(KeyCode.Space);
+            m_BoostPressed |= Input.GetKeyDown(KeyCode.RightShift);
+            m_FirePressed |= Input.GetKeyDown(KeyCode.RightControl);
         }
 
-        void FixedUpdate ()
+        void FixedUpdate()
         {
             m_FixedUpdateHappened = true;
         }
