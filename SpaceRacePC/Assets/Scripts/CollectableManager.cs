@@ -21,8 +21,7 @@ public class CollectableManager : MonoBehaviour
     public int capClustersPerLap = 5;
 
     // Enforce that collectables cannot be placed too close to the finish line
-    public float minDistanceFromFinishLine = 20;
-    public bool useGeneric = false; // BB TODO - refactor
+    public float minDistanceFromFinishLine = 40;
     public int clusterSize = 5;
     public float clusterOffset = 1f;
     public float curveOffset = 2.5f;
@@ -36,13 +35,7 @@ public class CollectableManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        GameObject gameManager = GameObject.Find("GameManager");
-        if (gameManager != null)
-        {
-            //useGeneric = gameManager.GetComponent<AdManager>().GetUseGeneric();
-        }
-        
+    {        
         collectables = new List<GameObject>();
         if (finishLine == null)
         {
@@ -91,148 +84,52 @@ public class CollectableManager : MonoBehaviour
     {
         Shuffle(tracks);
 
-        //Vector3 capPos;
-        //for (int i = 0; i < Mathf.Min(capClustersPerLap, tracks.Count); i++)
-        //{
-        //    if (tracks[i].name.Contains("Curve"))
-        //    {
-        //        capPos = tracks[i].position + Vector3.up * 2f;
-        //    }
-        //    else
-        //    {
-        //        capPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 2f;
-        //    }
-
-        //    if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
-        //    {
-        //        for (int j = 0; j < clusterSize; j++)
-        //        {
-        //            if (useGeneric)
-        //            {
-        //                Quaternion rot;
-        //                if (tracks[i].GetComponent<TrackDirection>().flipped)
-        //                {
-        //                    rot = Quaternion.Euler(
-        //                        tracks[i].rotation.eulerAngles.x,
-        //                        tracks[i].rotation.eulerAngles.y + 180f,
-        //                        tracks[i].rotation.eulerAngles.z);
-        //                }
-        //                else
-        //                {
-        //                    rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
-        //                }
-        //                collectables.Add(
-        //                    Instantiate(drThundeCapPrefab,
-        //                        capPos,
-        //                        rot,
-        //                        collectParent.transform));
-        //            }
-        //            else
-        //            {
-
-        //                Quaternion rot;
-        //                if (tracks[i].GetComponent<TrackDirection>().flipped)
-        //                {
-        //                    rot = Quaternion.Euler(
-        //                        tracks[i].rotation.eulerAngles.x,
-        //                        tracks[i].rotation.eulerAngles.y + 180f,
-        //                        tracks[i].rotation.eulerAngles.z);
-        //                }
-        //                else
-        //                {
-        //                    rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
-        //                }
-
-        //                collectables.Add(
-        //                    Instantiate(cokeCapPrefab,
-        //                        capPos,
-        //                        rot,
-        //                        collectParent.transform));
-        //            }
-        //            capPos.z += clusterOffset;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        for (int j = 0; j < clusterSize; j++)
-        //        {
-        //            if (useGeneric)
-        //            {
-        //                Quaternion rot;
-        //                if (tracks[i].GetComponent<TrackDirection>().flipped)
-        //                {
-        //                    rot = Quaternion.Euler(
-        //                        tracks[i].rotation.eulerAngles.x,
-        //                        tracks[i].rotation.eulerAngles.y + 180f,
-        //                        tracks[i].rotation.eulerAngles.z);
-        //                }
-        //                else
-        //                {
-        //                    rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
-        //                }
-        //                collectables.Add(
-        //                    Instantiate(drThundeCapPrefab,
-        //                        capPos,
-        //                        rot,
-        //                        collectParent.transform));
-        //            }
-        //            else
-        //            {
-        //                Quaternion rot;
-        //                if (tracks[i].GetComponent<TrackDirection>().flipped)
-        //                {
-        //                    rot = Quaternion.Euler(
-        //                        tracks[i].rotation.eulerAngles.x,
-        //                        tracks[i].rotation.eulerAngles.y + 180f,
-        //                        tracks[i].rotation.eulerAngles.z);
-        //                }
-        //                else
-        //                {
-        //                    rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
-        //                }
-        //                collectables.Add(
-        //                    Instantiate(cokeCapPrefab,
-        //                        capPos,
-        //                        rot,
-        //                        collectParent.transform));
-        //            }
-        //            capPos.x += clusterOffset;
-        //        }
-        //    }
-
-        //}
-
         GameObject gameManager = GameObject.Find("GameManager");
         GameModeManager gameModeManager = gameManager.GetComponent<GameModeManager>();
 
         Vector3 coinPos;
         // Place coins up until coinClusterPerLap or all the track space has been used up
-        for (int i = capClustersPerLap; i < Mathf.Min(capClustersPerLap + coinClusterPerLap, tracks.Count); i++)
+        //for (int i = capClustersPerLap; i < Mathf.Min(capClustersPerLap + coinClusterPerLap, tracks.Count); i++)
+        for (int i = 0; i < tracks.Count; i++)
         {
             if (tracks[i].name.Contains("Curve"))
             {
-                coinPos = tracks[i].position + Vector3.up * 2f;
+                if (tracks[i].name.Contains("Left"))
+                {
+                    if (tracks[i].name.Contains("Ramp"))
+                    {
+                        coinPos = tracks[i].transform.TransformPoint(Vector3.forward * 15f + Vector3.right * -10f + Vector3.up * 20f);
+                    }
+                    else
+                    {
+                        coinPos = tracks[i].transform.TransformPoint(Vector3.forward * 20f + Vector3.right * -20f + Vector3.up * 20f);
+                    }
+                }
+                else
+                {
+                    coinPos = tracks[i].transform.TransformPoint(Vector3.up * 20f);
+                }
+                
             }
             else 
             {
-                coinPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 2f;
+                coinPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 20f;
             }
-
-            Quaternion rot = Quaternion.Euler(
-                coinPrefab.transform.rotation.eulerAngles.x,
-                coinPrefab.transform.rotation.eulerAngles.y + tracks[i].rotation.eulerAngles.y,
-                coinPrefab.transform.rotation.eulerAngles.z);
 
             float laneDirectionScalar = Random.value > 0.5f ? 1.0f : -1.0f;
 
-            if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
+            if (tracks[i].name.Contains("Curve") && tracks[i].name.Contains("Left"))
             {
                 // Randomize the lane
                 if (gameModeManager.GetUseRandomizedCoins())
                 {
-                    coinPos += Vector3.right * laneDirectionScalar * 3.0f;
+                    coinPos += tracks[i].transform.TransformDirection(Vector3.forward * laneDirectionScalar * 3.0f);
                 }
 
+                Quaternion rot = Quaternion.Euler(
+                coinPrefab.transform.rotation.eulerAngles.x,
+                coinPrefab.transform.rotation.eulerAngles.y + tracks[i].rotation.eulerAngles.y + 90,
+                coinPrefab.transform.rotation.eulerAngles.z);
                 for (int j = 0; j < clusterSize; j++)
                 {
                     collectables.Add(
@@ -240,18 +137,21 @@ public class CollectableManager : MonoBehaviour
                             coinPos,
                             rot,
                             collectParent.transform));
-                    coinPos.z += clusterOffset;
+                    coinPos += tracks[i].transform.TransformDirection(-Vector3.right) * clusterOffset;
                 }
-
             }
             else
             {
                 // Randomize the lane
                 if (gameModeManager.GetUseRandomizedCoins())
                 {
-                    coinPos += Vector3.forward * laneDirectionScalar * 3.0f;
+                    coinPos += tracks[i].transform.TransformDirection(Vector3.right * laneDirectionScalar * 3.0f);
                 }
 
+                Quaternion rot = Quaternion.Euler(
+                coinPrefab.transform.rotation.eulerAngles.x,
+                coinPrefab.transform.rotation.eulerAngles.y + tracks[i].rotation.eulerAngles.y,
+                coinPrefab.transform.rotation.eulerAngles.z);
                 for (int j = 0; j < clusterSize; j++)
                 {
                     collectables.Add(
@@ -259,11 +159,11 @@ public class CollectableManager : MonoBehaviour
                             coinPos,
                             rot,
                             collectParent.transform));
-                    coinPos.x += clusterOffset;
+                    coinPos += tracks[i].transform.TransformDirection(-Vector3.forward) * clusterOffset;
                 }
             }
         }
-        AdjustCollectabls();
+        AdjustCollectables();
     }
 
 
@@ -308,7 +208,7 @@ public class CollectableManager : MonoBehaviour
 
     }
 
-    private void AdjustCollectabls()
+    private void AdjustCollectables()
     {
         RaycastHit hit;
         for (int i = 0; i < collectables.Count; i++)
