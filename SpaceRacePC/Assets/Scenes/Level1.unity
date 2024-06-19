@@ -30615,7 +30615,7 @@ PrefabInstance:
     - target: {fileID: 9084884021648134801, guid: 1a27545505a30d6479abf78847244a72,
         type: 3}
       propertyPath: raceLapTotal
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9084884021648134801, guid: 1a27545505a30d6479abf78847244a72,
         type: 3}
@@ -55016,6 +55016,16 @@ PrefabInstance:
       propertyPath: trackManager
       value: 
       objectReference: {fileID: 810926067}
+    - target: {fileID: 3109687788032145148, guid: 8d79384b550589d498c55817e4277af2,
+        type: 3}
+      propertyPath: initialDisplayOptions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109687788032145148, guid: 8d79384b550589d498c55817e4277af2,
+        type: 3}
+      propertyPath: 'initialDisplayOptions.Array.data[0]'
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3109687788032145149, guid: 8d79384b550589d498c55817e4277af2,
         type: 3}
       propertyPath: m_Pivot.x
