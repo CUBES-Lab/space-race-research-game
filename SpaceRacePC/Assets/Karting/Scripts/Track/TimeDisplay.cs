@@ -32,7 +32,7 @@ namespace KartGame.Track
             /// <summary>
             /// Displays the time for all the complete laps and the current lap.
             /// </summary>
-            FinishedAndCurrentLaps,
+            LastAndCurrentLaps,
             /// <summary>
             /// Displays the time for the current lap.
             /// </summary>
@@ -72,20 +72,19 @@ namespace KartGame.Track
 
         public void StartDisplay()
         {
-            m_DisplayCalls.Add(DisplayFakeRecordTime);
+            //m_DisplayCalls.Add(DisplayFakeRecordTime);
             for (int i = 0; i < initialDisplayOptions.Count; i++)
             {
                 switch (initialDisplayOptions[i])
                 {
-                   
                     case DisplayOptions.AllLaps:
                         m_DisplayCalls.Add(DisplayAllLapTimes);
                         break;
                     case DisplayOptions.FinishedLaps:
                         m_DisplayCalls.Add(DisplayFinishedLapTimes);
                         break;
-                    case DisplayOptions.FinishedAndCurrentLaps:
-                        m_DisplayCalls.Add(DisplayFinishedAndCurrentLapTimes);
+                    case DisplayOptions.LastAndCurrentLaps:
+                        m_DisplayCalls.Add(DisplayLastAndCurrentLapTimes);
                         break;
                     case DisplayOptions.CurrentLap:
                         m_DisplayCalls.Add(DisplayCurrentLapTime);
@@ -121,10 +120,10 @@ namespace KartGame.Track
             m_StringBuilder.AppendLine($"UUID: Put the generated");
         }
 
-        void DisplayRaceTime()
-        {
-            m_StringBuilder.AppendLine($"Total: {m_Racer.GetRaceTime():.##}");
-        }
+        //void DisplayRaceTime()
+        //{
+        //    m_StringBuilder.AppendLine($"Total: {m_Racer.GetRaceTime():0.00}");
+        //}
 
         void DisplayAllLapTimes()
         {
@@ -139,7 +138,7 @@ namespace KartGame.Track
 
                 if (i < lapTimes.Count)
                 {
-                    m_StringBuilder.AppendFormat(lapTimes[i].ToString(".##"));
+                    m_StringBuilder.AppendFormat(lapTimes[i].ToString("0.00"));
                 }
                 else
                 {
@@ -159,88 +158,81 @@ namespace KartGame.Track
                 m_StringBuilder.Append("Lap ");
                 m_StringBuilder.Append(i + 1);
                 m_StringBuilder.Append(": ");
-                m_StringBuilder.Append(lapTimes[i].ToString(".##"));
+                m_StringBuilder.Append(lapTimes[i].ToString("0.00"));
                 m_StringBuilder.Append('\n');
             }
         }
 
-        void DisplayFinishedAndCurrentLapTimes()
+        void DisplayLastAndCurrentLapTimes()
         {
+            float currentLapTime = m_Racer.GetLapTime();
+            m_StringBuilder.Append("Lap:  ");
+            m_StringBuilder.Append(currentLapTime.ToString("0.00"));
+            m_StringBuilder.Append('\n');
+
             List<float> lapTimes = m_Racer.GetLapTimes();
-            for (int i = 0; i < lapTimes.Count; i++)
+            if (lapTimes.Count > 0)
             {
-                m_StringBuilder.Append("Lap ");
-                m_StringBuilder.Append(i + 1);
-                m_StringBuilder.Append(": ");
-                m_StringBuilder.Append(lapTimes[i].ToString(".##"));
+                m_StringBuilder.Append("Last: ");
+                m_StringBuilder.Append(lapTimes[lapTimes.Count-1].ToString("0.00"));
                 m_StringBuilder.Append('\n');
             }
-
-            float currentLapTime = m_Racer.GetLapTime();
-            if (Mathf.Approximately(currentLapTime, 0f))
-                return;
-
-            m_StringBuilder.Append("Lap ");
-            m_StringBuilder.Append(lapTimes.Count + 1);
-            m_StringBuilder.Append(": ");
-            m_StringBuilder.Append(currentLapTime.ToString(".##"));
-            m_StringBuilder.Append('\n');
         }
 
         void DisplayCurrentLapTime()
         {
             float currentLapTime = m_Racer.GetLapTime();
-            if (Mathf.Approximately(currentLapTime, 0f))
-                return;
+            //if (Mathf.Approximately(currentLapTime, 0f))
+            //    return;
 
-            m_StringBuilder.Append("Current: ");
-            m_StringBuilder.Append(currentLapTime.ToString(".##"));
+            m_StringBuilder.Append("Lap: ");
+            m_StringBuilder.Append(currentLapTime.ToString("0.00"));
             m_StringBuilder.Append('\n');
         }
 
-        void DisplaySessionBestLapTime()
-        {
-            float bestLapTime = trackManager.SessionBestLap;
-            if (Mathf.Approximately(bestLapTime, -1f))
-                return;
+        //void DisplaySessionBestLapTime()
+        //{
+        //    float bestLapTime = trackManager.SessionBestLap;
+        //    if (Mathf.Approximately(bestLapTime, -1f))
+        //        return;
 
-            m_StringBuilder.Append("Session Best Lap: ");
-            m_StringBuilder.Append(bestLapTime.ToString(".##"));
-            m_StringBuilder.Append('\n');
-        }
+        //    m_StringBuilder.Append("Session Best Lap: ");
+        //    m_StringBuilder.Append(bestLapTime.ToString("0.00"));
+        //    m_StringBuilder.Append('\n');
+        //}
 
-        void DisplaySessionBestRaceTime()
-        {
-            float bestLapTime = trackManager.SessionBestRace;
-            if (Mathf.Approximately(bestLapTime, -1f))
-                return;
+        //void DisplaySessionBestRaceTime()
+        //{
+        //    float bestLapTime = trackManager.SessionBestRace;
+        //    if (Mathf.Approximately(bestLapTime, -1f))
+        //        return;
 
-            m_StringBuilder.Append("Session Best Race: ");
-            m_StringBuilder.Append(bestLapTime.ToString(".##"));
-            m_StringBuilder.Append('\n');
-        }
+        //    m_StringBuilder.Append("Session Best Race: ");
+        //    m_StringBuilder.Append(bestLapTime.ToString("0.00"));
+        //    m_StringBuilder.Append('\n');
+        //}
 
-        void DisplayHistoricalBestLapTime()
-        {
-            float bestLapTime = trackManager.HistoricalBestLap;
-            if (Mathf.Approximately(bestLapTime, -1f))
-                return;
+        //void DisplayHistoricalBestLapTime()
+        //{
+        //    float bestLapTime = trackManager.HistoricalBestLap;
+        //    if (Mathf.Approximately(bestLapTime, -1f))
+        //        return;
 
-            m_StringBuilder.Append("Best Lap Ever: ");
-            m_StringBuilder.Append(bestLapTime.ToString(".##"));
-            m_StringBuilder.Append('\n');
-        }
+        //    m_StringBuilder.Append("Best Lap Ever: ");
+        //    m_StringBuilder.Append(bestLapTime.ToString("0.00"));
+        //    m_StringBuilder.Append('\n');
+        //}
 
-        void DisplayHistoricalBestRaceTime()
-        {
-            float bestLapTime = trackManager.HistoricalBestRace;
-            if (Mathf.Approximately(bestLapTime, -1f))
-                return;
+        //void DisplayHistoricalBestRaceTime()
+        //{
+        //    float bestLapTime = trackManager.HistoricalBestRace;
+        //    if (Mathf.Approximately(bestLapTime, -1f))
+        //        return;
 
-            m_StringBuilder.Append("Best Race Ever: ");
-            m_StringBuilder.Append(bestLapTime.ToString(".##"));
-            m_StringBuilder.Append('\n');
-        }
+        //    m_StringBuilder.Append("Best Race Ever: ");
+        //    m_StringBuilder.Append(bestLapTime.ToString("0.00"));
+        //    m_StringBuilder.Append('\n');
+        //}
 
         /// <summary>
         /// Call this function to change what information is currently being displayed.  This causes a GCAlloc.
@@ -250,19 +242,17 @@ namespace KartGame.Track
         public void RebindDisplayOptions(List<DisplayOptions> newDisplay)
         {
             m_DisplayCalls.Clear();
-            m_DisplayCalls.Add(DisplayFakeRecordTime);
+            //m_DisplayCalls.Add(DisplayFakeRecordTime);
 
             for (int i = 0; i < newDisplay.Count; i++)
             {
                 switch (newDisplay[i])
                 {
-                    
-                    
                     case DisplayOptions.FinishedLaps:
                         m_DisplayCalls.Add(DisplayFinishedLapTimes);
                         break;
-                    case DisplayOptions.FinishedAndCurrentLaps:
-                        m_DisplayCalls.Add(DisplayFinishedAndCurrentLapTimes);
+                    case DisplayOptions.LastAndCurrentLaps:
+                        m_DisplayCalls.Add(DisplayLastAndCurrentLapTimes);
                         break;
                     case DisplayOptions.CurrentLap:
                         m_DisplayCalls.Add(DisplayCurrentLapTime);
