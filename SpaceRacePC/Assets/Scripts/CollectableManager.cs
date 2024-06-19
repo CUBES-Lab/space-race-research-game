@@ -116,7 +116,23 @@ public class CollectableManager : MonoBehaviour
                 coinPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 20f;
             }
 
-            float laneDirectionScalar = Random.value > 0.5f ? 1.0f : -1.0f;
+            float laneDirectionScalar = 1.0f;
+            if (gameModeManager.GetUseRandomizedCoins())
+            {
+                float randVal = Random.value;
+                if (randVal < .34)
+                {
+                    laneDirectionScalar = 1.0f;
+                }
+                else if (randVal < .67)
+                {
+                    laneDirectionScalar = 0.0f;
+                }
+                else
+                {
+                    laneDirectionScalar = -1.0f;
+                }
+            }
 
             if (tracks[i].name.Contains("Curve") && tracks[i].name.Contains("Left"))
             {
