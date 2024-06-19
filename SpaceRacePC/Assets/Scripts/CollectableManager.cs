@@ -17,8 +17,8 @@ public class CollectableManager : MonoBehaviour
     public Transform trackParent;
 
     public Transform finishLine;
-    public int coinClusterPerLap = 25;
-    public int capClustersPerLap = 5;
+    public int coinClustersPerLap = 25;
+    //public int capClustersPerLap = 5;
 
     // Enforce that collectables cannot be placed too close to the finish line
     public float minDistanceFromFinishLine = 40;
@@ -88,11 +88,21 @@ public class CollectableManager : MonoBehaviour
         GameModeManager gameModeManager = gameManager.GetComponent<GameModeManager>();
 
         Vector3 coinPos;
-        // Place coins up until coinClusterPerLap or all the track space has been used up
-        //for (int i = capClustersPerLap; i < Mathf.Min(capClustersPerLap + coinClusterPerLap, tracks.Count); i++)
+        // Place coins up until coinClustersPerLap or all the track space has been used up
+        //for (int i = capClustersPerLap; i < Mathf.Min(capClustersPerLap + coinClustersPerLap, tracks.Count); i++)
+        int numClustersPlaced = 0;
         for (int i = 0; i < tracks.Count; i++)
         {
-            if (tracks[i].name.Contains("Curve"))
+            if (numClustersPlaced >= coinClustersPerLap)
+            {
+                break;
+            }
+
+            if (tracks[i].name.Contains("NOCOINS"))
+            {
+                continue;
+            }
+            else if (tracks[i].name.Contains("Curve"))
             {
                 if (tracks[i].name.Contains("Left"))
                 {
@@ -155,6 +165,7 @@ public class CollectableManager : MonoBehaviour
                             collectParent.transform));
                     coinPos += tracks[i].transform.TransformDirection(-Vector3.right) * clusterOffset;
                 }
+                numClustersPlaced += 1;
             }
             else
             {
@@ -177,6 +188,7 @@ public class CollectableManager : MonoBehaviour
                             collectParent.transform));
                     coinPos += tracks[i].transform.TransformDirection(-Vector3.forward) * clusterOffset;
                 }
+                numClustersPlaced += 1;
             }
         }
         AdjustCollectables();

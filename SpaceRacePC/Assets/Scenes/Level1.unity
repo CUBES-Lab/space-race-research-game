@@ -53735,7 +53735,7 @@ PrefabInstance:
     - target: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
         type: 3}
       propertyPath: m_Name
-      value: ModularTrackRamp (1)
+      value: ModularTrackRamp_NOCOINS
       objectReference: {fileID: 0}
     - target: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
         type: 3}
