@@ -27,17 +27,17 @@ public class EndController : MonoBehaviour
 
     void Start()
     {
-        adManager = GameObject.Find("GameManager").GetComponent<AdManager>();
+        //adManager = GameObject.Find("GameManager").GetComponent<AdManager>();
 
-        // BB - This replaces the checkered billboard material with the logo right away
-        if (adManager.GetUseHighInvolvement())
-        {
-            billboardContents.GetComponent<MeshRenderer>().material = highInvolvementBillboardMat;
-        }
-        else
-        {
-            billboardContents.GetComponent<MeshRenderer>().material = lowInvolvementBillboardMat;
-        }
+        //// BB - This replaces the checkered billboard material with the logo right away
+        //if (adManager.GetUseHighInvolvement())
+        //{
+        //    billboardContents.GetComponent<MeshRenderer>().material = highInvolvementBillboardMat;
+        //}
+        //else
+        //{
+        //    billboardContents.GetComponent<MeshRenderer>().material = lowInvolvementBillboardMat;
+        //}
     }
 
     // Update is called once per frame
@@ -56,14 +56,14 @@ public class EndController : MonoBehaviour
                 startPortal.SetActive(true);
             }
             
-            if (adManager.GetUseHighInvolvement())
-            {
-                billboardContents.GetComponent<MeshRenderer>().material = highInvolvementBillboardMat;
-            }
-            else
-            {
-                billboardContents.GetComponent<MeshRenderer>().material = lowInvolvementBillboardMat;
-            }
+            //if (adManager.GetUseHighInvolvement())
+            //{
+            //    billboardContents.GetComponent<MeshRenderer>().material = highInvolvementBillboardMat;
+            //}
+            //else
+            //{
+            //    billboardContents.GetComponent<MeshRenderer>().material = lowInvolvementBillboardMat;
+            //}
             
             setupEnd = true;
         }

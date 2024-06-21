@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        print("LEVEL MANAGER START");
         sceneController = GetComponent<SceneController>();
         sceneController.AddLoadCallback(SetTrackManager);
         sceneController.AddLoadCallback(SetTimeline);
@@ -52,6 +53,7 @@ public class LevelManager : MonoBehaviour
 
     void SetTrackManager(string sceneName)
     {
+        print("Set Track Manager");
         if (curLevel != 0)
         {
             trackManager = GameObject.Find("TrackManager").GetComponent<TrackManager>();

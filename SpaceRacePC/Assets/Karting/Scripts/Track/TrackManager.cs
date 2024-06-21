@@ -27,75 +27,29 @@ namespace KartGame.Track
         bool m_IsRaceRunning;
         bool m_IsRaceStopped; // need to trigger the event here
         Dictionary<IRacer, Checkpoint> m_RacerNextCheckpoints = new Dictionary<IRacer, Checkpoint> (16);
-        TrackRecord m_SessionBestLap = TrackRecord.CreateDefault ();
-        TrackRecord m_SessionBestRace = TrackRecord.CreateDefault ();
-        TrackRecord m_HistoricalBestLap;
-        TrackRecord m_HistoricalBestRace;
+        //LeaderboardRecord m_leaderboardRecord;
 
         public bool IsRaceRunning => m_IsRaceRunning;
         public bool IsRaceStopped => m_IsRaceStopped;
 
         public bool hitFirstCheckpoint;
 
-        /// <summary>
-        /// Returns the best lap time recorded this session.  If no record is found, -1 is returned.
-        /// </summary>
-        public float SessionBestLap
+        public float GetLeaderboardScore()
         {
-            get
-            {
-                if (m_SessionBestLap != null && m_SessionBestLap.time < float.PositiveInfinity)
-                    return m_SessionBestLap.time;
-                return -1f;
-            }
+            return 0.0f;//m_leaderboardRecord.GetScore();
         }
 
-        /// <summary>
-        /// Returns the best race time recorded this session.  If no record is found, -1 is returned.
-        /// </summary>
-        public float SessionBestRace
+        public float GetLeaderboardRaceTime()
         {
-            get
-            {
-                if (m_SessionBestRace != null && m_SessionBestRace.time < float.PositiveInfinity)
-                    return m_SessionBestRace.time;
-                return -1f;
-            }
-        }
-
-        /// <summary>
-        /// Returns the best lap time ever recorded.  If no record is found, -1 is returned.
-        /// </summary>
-        public float HistoricalBestLap
-        {
-            get
-            {
-                if (m_HistoricalBestLap != null && m_HistoricalBestLap.time < float.PositiveInfinity)
-                    return m_HistoricalBestLap.time;
-                return -1f;
-            }
-        }
-
-        /// <summary>
-        /// Returns the best race time ever recorded.  If no record is found, -1 is returned.
-        /// </summary>
-        public float HistoricalBestRace
-        {
-            get
-            {
-                if (m_HistoricalBestRace != null && m_HistoricalBestRace.time < float.PositiveInfinity)
-                    return m_HistoricalBestRace.time;
-                return -1f;
-            }
+            return 0.0f;//m_leaderboardRecord.GetRaceTime();
         }
 
         void Awake ()
         {
             if(checkpoints.Count < 3)
                 Debug.LogWarning ("There are currently " + checkpoints.Count + " checkpoints set on the Track Manager.  A minimum of 3 is recommended but kart control will not be enabled with 0.");
-            
-            m_HistoricalBestLap = TrackRecord.Load (trackName, 1);
-            m_HistoricalBestRace = TrackRecord.Load (trackName, raceLapTotal);
+
+            //m_leaderboardRecord.Load(uid);
         }
 
         void OnEnable ()
@@ -161,8 +115,7 @@ namespace KartGame.Track
                 racerNextCheckpoint.Key.PauseTimer ();
             }
 
-            TrackRecord.Save (m_HistoricalBestLap);
-            TrackRecord.Save (m_HistoricalBestRace);
+            //m_leaderboardRecord.Save();
             m_IsRaceStopped = true;
         }
 
@@ -214,23 +167,13 @@ namespace KartGame.Track
                 int racerCurrentLap = racer.GetCurrentLap ();
                 if (racerCurrentLap > 0)
                 {
-                    float lapTime = racer.GetLapTime ();
-
-                    if (m_SessionBestLap.time > lapTime)
-                        m_SessionBestLap.SetRecord (trackName, 1, racer, lapTime);
-
-                    if (m_HistoricalBestLap.time > lapTime)
-                        m_HistoricalBestLap.SetRecord (trackName, 1, racer, lapTime);
-
                     if (racerCurrentLap == raceLapTotal)
                     {
+                        //float score = racer.GetScore();
                         float raceTime = racer.GetRaceTime();
 
-                        if (m_SessionBestRace.time > raceTime)
-                            m_SessionBestRace.SetRecord(trackName, raceLapTotal, racer, raceTime);
-
-                        if (m_HistoricalBestRace.time > raceTime)
-                            m_HistoricalBestLap.SetRecord(trackName, raceLapTotal, racer, raceTime);
+                        //if (score > m_leaderboardRecord.score || (score == m_leaderboardRecord.score && raceTime < m_leaderboardRecord.raceTime))
+                        //    m_leaderboardRecord.SetRecord(score, raceTime);
 
                         racer.DisableControl();
                         racer.PauseTimer();

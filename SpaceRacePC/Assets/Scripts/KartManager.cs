@@ -30,7 +30,13 @@ public class KartManager : MonoBehaviour
     /// </summary>
     public void InitLevel(string sceneName)
     {
-        //print("InitLevel");
+        // BB - this function gets called twice when domain reloading is disabled in Unity editor.  I tried to
+        // fix it by reseting the callback delegate and static variables, but it still happens. This is a
+        // workaround.
+        if (GameObject.FindWithTag("Player") != null)
+        {
+            return;
+        }
         GameObject trackManagerGO = GameObject.Find("TrackManager");
         GameObject displayGO = GameObject.Find("TimeDisplayCanvas");
 

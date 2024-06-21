@@ -13,7 +13,19 @@ public class SceneController : MonoBehaviour
 
     LevelLoaded load;
 
-    private static SceneController instance;
+    private static SceneController instance = null;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void Init()
+    {
+        instance = null;
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void RunOnStart()
+    {
+        instance = null;
+    }
 
     void Awake()
     {
@@ -21,18 +33,28 @@ public class SceneController : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(GameObject.Find("ParticipantInfo"));
             load = null;
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else if (instance != this)
         {
             // Have to reset this to the old gameManager as the currently reference the one in scene
-            GameObject.Find("StartVRButton").GetComponent<Button>().onClick.AddListener(
+            GameObject startVRObj = GameObject.Find("StartVRButton");
+            if (startVRObj != null)
+            {
+                GameObject.Find("StartVRButton").GetComponent<Button>().onClick.AddListener(
                 () => { instance.gameObject.GetComponent<KartManager>().SetIsVR(true); });
-            GameObject.Find("StartMobileButton").GetComponent<Button>().onClick.AddListener(
+            }
+
+            GameObject startMobileObj = GameObject.Find("StartMobileButton");
+            if (startMobileObj != null)
+            {
+                GameObject.Find("StartMobileButton").GetComponent<Button>().onClick.AddListener(
                 () => { instance.gameObject.GetComponent<KartManager>().SetIsVR(false); });
-            GameObject.Find("StartMobileButton").GetComponent<Button>().onClick.AddListener(
-                () => { instance.LoadScene("Level1"); });
+                GameObject.Find("StartMobileButton").GetComponent<Button>().onClick.AddListener(
+                    () => { instance.LoadScene("Level1"); });
+            }
 
             // Destroy instance that is in this scene as you don't want duplciates
             Destroy(gameObject);
@@ -44,7 +66,7 @@ public class SceneController : MonoBehaviour
     /// </summary>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        print("OnSceneLoaded " + instance);
+        //print("OnSceneLoaded " + instance);
         //print(gameObject);
         // Check if you loaded a playable level
         if (scene.name.Contains("Level"))
