@@ -12,10 +12,13 @@ public class KartSpeedPad : MonoBehaviour
     public float duration = 1f;
 
     void OnTriggerEnter(Collider other){
-        var rb = other.attachedRigidbody;
-        if (rb == null) return;
-        var kart = rb.GetComponent<KartMovement>();
-        kart.StartCoroutine(KartModifier(kart, duration));
+        if (other.gameObject.CompareTag("Player"))
+        {
+            var rb = other.attachedRigidbody;
+            if (rb == null) return;
+            var kart = rb.GetComponent<KartMovement>();
+            kart.StartCoroutine(KartModifier(kart, duration));
+        }
     }
 
     IEnumerator KartModifier(KartGame.KartSystems.KartMovement kart, float lifetime){

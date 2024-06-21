@@ -44,7 +44,6 @@ namespace KartGame.Timeline
             }
         }
         
-        
         [Tooltip("The playable director to be played.")]
         public PlayableDirector director;
         [Tooltip("These events will be triggered at their corresponding time through the duration of the timeline.")]

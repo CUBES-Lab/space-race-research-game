@@ -115,10 +115,10 @@ namespace KartGame.Track
             textComponent.text = m_StringBuilder.ToString();
         }
 
-        //void DisplayFakeRecordTime()
-        //{
-        //    m_StringBuilder.AppendLine($"Performance");
-        //}
+        void DisplayFakeRecordTime()
+        {
+            m_StringBuilder.AppendLine($"UUID: Put the generated");
+        }
 
         //void DisplayRaceTime()
         //{
