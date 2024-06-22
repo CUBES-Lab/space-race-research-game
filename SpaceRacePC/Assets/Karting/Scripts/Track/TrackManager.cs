@@ -116,6 +116,19 @@ namespace KartGame.Track
             }
 
             //m_leaderboardRecord.Save();
+
+            // Save race session
+            GameObject gameManager = GameObject.Find("GameManager");
+            RaceSession raceSession = gameManager.GetComponent<RaceSession>();
+            ParticipantInfo participantInfo = GameObject.Find("ParticipantInfo").GetComponent<ParticipantInfo>();
+            KartCollect kartCollect = GameObject.Find("Kart").GetComponent<KartCollect>();
+            Racer kartRacer = GameObject.Find("Kart").GetComponent<Racer>();
+            string uid = participantInfo.GetUID();
+            int score = kartCollect.score;
+            float raceTime = kartRacer.GetRaceTime();
+            string logStream = "";
+            raceSession.SaveNewSession(uid, score, raceTime, logStream);
+
             m_IsRaceStopped = true;
         }
 

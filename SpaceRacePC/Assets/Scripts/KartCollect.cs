@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using KartGame.Track;
 
 /// <summary>
 ///   The KartCollect compenent allows for collectables to be collected, and updates score.
