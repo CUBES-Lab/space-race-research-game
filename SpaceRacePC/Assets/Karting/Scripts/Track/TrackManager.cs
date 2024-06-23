@@ -100,6 +100,8 @@ namespace KartGame.Track
                 racerNextCheckpoint.Key.EnableControl ();
                 racerNextCheckpoint.Key.UnpauseTimer ();
             }
+
+            GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Start Race", "The race has started.");
         }
 
         /// <summary>

@@ -37,6 +37,8 @@ public class KartCollect : MonoBehaviour
             score += coinPoints;
             StartCoroutine(CollectAndDestory(other.gameObject));
             scoreUpdated = true;
+
+            GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Coin", "Coin collected. Score is now: "+score);
         }
         if (other.tag == "Cap")
         {
