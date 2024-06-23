@@ -100,6 +100,8 @@ namespace KartGame.Track
                 racerNextCheckpoint.Key.EnableControl ();
                 racerNextCheckpoint.Key.UnpauseTimer ();
             }
+
+            GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Start Race", "The race has started.");
         }
 
         /// <summary>
@@ -116,6 +118,21 @@ namespace KartGame.Track
             }
 
             //m_leaderboardRecord.Save();
+
+            // Log the final score and race time
+            ParticipantInfo participantInfo = GameObject.Find("ParticipantInfo").GetComponent<ParticipantInfo>();
+            KartCollect kartCollect = GameObject.Find("Kart").GetComponent<KartCollect>();
+            Racer kartRacer = GameObject.Find("Kart").GetComponent<Racer>();
+            string uid = participantInfo.GetUID();
+            int score = kartCollect.score;
+            float raceTime = kartRacer.GetRaceTime();
+            GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Stop Race", "Session score: " + score.ToString() + ", Race Time: " + raceTime.ToString("0.000"));
+
+            // Save race session
+            GameObject gameManager = GameObject.Find("GameManager");
+            RaceSession raceSession = gameManager.GetComponent<RaceSession>();
+            raceSession.SaveNewSession(uid, score, raceTime);
+
             m_IsRaceStopped = true;
         }
 

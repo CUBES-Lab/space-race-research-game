@@ -131,6 +131,8 @@ public class ParticipantInfo : MonoBehaviour
 
             GameObject.Find("Login").active = false;
             GameObject.Find("Canvas").transform.Find("MainMenu").gameObject.active = true; // BB - Use the parent Canvas to find the inactive MainMenu
+
+            GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Login", "Participant " + this.uid + " logged in successfully");
         }
     }
 

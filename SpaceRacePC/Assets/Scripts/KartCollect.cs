@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using KartGame.Track;
 
 /// <summary>
 ///   The KartCollect compenent allows for collectables to be collected, and updates score.
@@ -36,6 +37,8 @@ public class KartCollect : MonoBehaviour
             score += coinPoints;
             StartCoroutine(CollectAndDestory(other.gameObject));
             scoreUpdated = true;
+
+            GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Coin", "Coin collected. Score is now: "+score);
         }
         if (other.tag == "Cap")
         {

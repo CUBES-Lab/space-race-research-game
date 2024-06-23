@@ -18,6 +18,8 @@ public class KartSpeedPad : MonoBehaviour
             if (rb == null) return;
             var kart = rb.GetComponent<KartMovement>();
             kart.StartCoroutine(KartModifier(kart, duration));
+
+            GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Boost", "Player touched a boost");
         }
     }
 

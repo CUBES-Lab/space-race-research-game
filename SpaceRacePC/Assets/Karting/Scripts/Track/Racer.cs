@@ -16,6 +16,7 @@ namespace KartGame.Track
         IControllable m_KartMovement;
         bool m_IsTimerPaused = true;
         float m_Timer = 0f;
+        float m_PositionLogTimer = 0f;
         int m_CurrentLap = 0;
         List<float> m_LapTimes = new List<float> (9);
 
@@ -27,7 +28,16 @@ namespace KartGame.Track
         void Update ()
         {
             if (m_CurrentLap > 0 && !m_IsTimerPaused)
+            {
                 m_Timer += Time.deltaTime;
+                m_PositionLogTimer += Time.deltaTime;
+            }
+
+            if (m_PositionLogTimer > 0.5f)
+            {
+                GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Player Position", this.transform.position.ToString());
+                m_PositionLogTimer = 0.0f;
+            }
         }
 
         public void PauseTimer ()

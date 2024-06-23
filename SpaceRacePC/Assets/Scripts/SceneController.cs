@@ -34,6 +34,7 @@ public class SceneController : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(GameObject.Find("ParticipantInfo"));
+            DontDestroyOnLoad(GameObject.Find("GameLogger"));
             load = null;
             SceneManager.sceneLoaded += OnSceneLoaded;
         }

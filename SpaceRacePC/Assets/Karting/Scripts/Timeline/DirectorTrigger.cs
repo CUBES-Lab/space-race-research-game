@@ -28,7 +28,7 @@ namespace KartGame.Timeline
             /// <param name="currentTime">The current time of the timeline playing.</param>
             public void CheckAndTriggerEvent (float currentTime)
             {
-                if (!m_Triggered && currentTime >= time)
+                if (!m_Triggered && currentTime >= time && timedEvent != null)
                 {
                     timedEvent.Invoke ();
                     m_Triggered = true;
