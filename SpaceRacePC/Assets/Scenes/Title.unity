@@ -1392,6 +1392,50 @@ MonoBehaviour:
     type: 3}
   iconColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
   highlightedIconColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &442651842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 442651844}
+  - component: {fileID: 442651843}
+  m_Layer: 0
+  m_Name: GameLogger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &442651843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442651842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ded295c71f14544fb72787cce7a5e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &442651844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442651842}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 636.1856, y: 320.99582, z: 22.63778}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &483452095
 GameObject:
   m_ObjectHideFlags: 0
@@ -5486,3 +5530,4 @@ SceneRoots:
   - {fileID: 1783598035}
   - {fileID: 1551384606}
   - {fileID: 412506144}
+  - {fileID: 442651844}

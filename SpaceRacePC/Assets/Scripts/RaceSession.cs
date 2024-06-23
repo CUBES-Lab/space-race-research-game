@@ -97,9 +97,14 @@ public class RaceSession : MonoBehaviour
         yield return www;
     }
 
-    public void SaveNewSession(string uid, int score, float raceTime, string logStream)
+    public void SaveNewSession(string uid, int score, float raceTime, bool doSaveLog=true)
     {
         string newSessionID = System.Guid.NewGuid().ToString();
         StartCoroutine(Post(uid, newSessionID, score.ToString(), raceTime.ToString("0.000")));
+
+        if (doSaveLog)
+        {
+            GameObject.Find("GameLogger").GetComponent<GameLogger>().SaveLogCloudSave(newSessionID+".txt");
+        }
     }
 }

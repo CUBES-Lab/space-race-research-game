@@ -38,12 +38,16 @@ public class LevelManager : MonoBehaviour
                 if (!cutsceneController.isPlaying())
                 {
                     trackManager = null;
-                    sceneController.LoadScene(GetNextLevel());
+                    string nextLevel = GetNextLevel();
+                    GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Level Load", "Loading level "+nextLevel);
+                    sceneController.LoadScene(nextLevel);
                 }
             } else
             {
                 trackManager = null;
-                sceneController.LoadScene(GetNextLevel());
+                string nextLevel = GetNextLevel();
+                GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Level Load", "Loading level " + nextLevel);
+                sceneController.LoadScene(nextLevel);
             }
         }
     }
