@@ -61,10 +61,10 @@ namespace KartGame.UI
 
         void Update()
         {
-            if (Input.GetButtonDown("Menu"))
-            {
-                HandleMenuButton();
-            }
+            //if (Input.GetButtonDown("Menu"))
+            //{
+            //    HandleMenuButton();
+            //}
         }
 
         void HandleMenuButton()
