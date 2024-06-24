@@ -2568,6 +2568,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
         type: 3}
+      propertyPath: m_text
+      value: 'Coins: 0
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
+        type: 3}
       propertyPath: m_fontSize
       value: 30
       objectReference: {fileID: 0}

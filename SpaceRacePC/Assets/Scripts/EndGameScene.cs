@@ -11,7 +11,8 @@ using Unity.Services.Leaderboards.Models;
 
 public class EndGameScene : MonoBehaviour
 {
-    const string LeaderboardID = "Level1Leaderboard";
+    const string LeaderboardIDFixedCoins = "Level1Leaderboard";
+    const string LeaderboardIDRandomizedCoins = "Level1RandomizedCoins";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     async void Start()
@@ -27,11 +28,12 @@ public class EndGameScene : MonoBehaviour
             float finalScore = raceTime - score;
             GameObject.Find("UID").GetComponent<TMP_InputField>().text = "UID: "+uid;
             GameObject.Find("RaceTime").GetComponent<TMP_InputField>().text = "Time: "+raceTime.ToString("0.000");
-            GameObject.Find("Score").GetComponent<TMP_InputField>().text = "Coins: " + score.ToString();
+            GameObject.Find("Score").GetComponent<TMP_InputField>().text = "Coins: " + score.ToString() + "/100";
             GameObject.Find("FinalScore").GetComponent<TMP_InputField>().text = "Final Time: "+ finalScore.ToString("0.000");
 
             if (participantInfo.GetUsingLeaderboard())
             {
+                string LeaderboardID = participantInfo.GetUsingRandomizedCoins() ? LeaderboardIDRandomizedCoins : LeaderboardIDFixedCoins;
                 AsyncServices asyncServices = GameObject.Find("AsyncServices").GetComponent<AsyncServices>();
                 var playerScore = await asyncServices.PostLeaderboardPlayerScore(LeaderboardID, finalScore);
                 var scores = await asyncServices.GetLeaderboardScores(LeaderboardID);
@@ -49,7 +51,6 @@ public class EndGameScene : MonoBehaviour
                     }
                 }
 
-                //var playerScore = await asyncServices.GetLeaderboardPlayerScore(LeaderboardID);
                 TMP_InputField playerRankText = leaderboard.transform.Find("PlayerLeaderboard").transform.Find("PlayerRank").GetComponent<TMP_InputField>();
                 playerRankText.text = "You are rank " + (playerScore.Rank + 1).ToString();
 
