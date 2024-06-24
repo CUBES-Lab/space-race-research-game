@@ -7,10 +7,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Newtonsoft.Json;
+using Unity.Services.Leaderboards.Models;
 
 public class EndGameScene : MonoBehaviour
 {
-    const string LeaderboardId = "Level1Leaderboard";
+    const string LeaderboardID = "Level1Leaderboard";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     async void Start()
@@ -31,11 +32,28 @@ public class EndGameScene : MonoBehaviour
 
             if (participantInfo.GetUsingLeaderboard())
             {
-                //AsyncServices asyncServices = GameObject.Find("AsyncServices").GetComponent<AsyncServices>();
-                var scores = await GameObject.Find("AsyncServices").GetComponent<AsyncServices>().Test();
-                Debug.Log(JsonConvert.SerializeObject(scores));
-                print("AFTER TEST");
-                //Task.Run(() => UpdateAndShowLeaderboard(asyncServices, finalScore));
+                AsyncServices asyncServices = GameObject.Find("AsyncServices").GetComponent<AsyncServices>();
+                var playerScore = await asyncServices.PostLeaderboardPlayerScore(LeaderboardID, finalScore);
+                var scores = await asyncServices.GetLeaderboardScores(LeaderboardID);
+
+                GameObject leaderboard = GameObject.Find("Canvas").transform.Find("Leaderboard").gameObject; // BB - Use the parent Canvas to find the inactive MainMenu
+                TMP_InputField firstRankText = leaderboard.transform.Find("FirstRank").GetComponent<TMP_InputField>();
+                TMP_InputField secondRankText = leaderboard.transform.Find("SecondRank").GetComponent<TMP_InputField>();
+                TMP_InputField thirdRankText = leaderboard.transform.Find("ThirdRank").GetComponent<TMP_InputField>();
+                TMP_InputField[] rankTexts = new TMP_InputField[] { firstRankText, secondRankText, thirdRankText };
+                for (int i = 0; i < 3; ++i)
+                {
+                    if (i < scores.Results.Count)
+                    {
+                        rankTexts[i].text = (scores.Results[i].Rank + 1).ToString() + ") " + scores.Results[i].Score.ToString("0.000") + " [" + scores.Results[i].PlayerName.Split('#')[0] + "]";
+                    }
+                }
+
+                //var playerScore = await asyncServices.GetLeaderboardPlayerScore(LeaderboardID);
+                TMP_InputField playerRankText = leaderboard.transform.Find("PlayerLeaderboard").transform.Find("PlayerRank").GetComponent<TMP_InputField>();
+                playerRankText.text = "You are rank " + (playerScore.Rank + 1).ToString();
+
+                leaderboard.active = true;
             }
         }
     }
@@ -44,17 +62,5 @@ public class EndGameScene : MonoBehaviour
     void Update()
     {
 
-    }
-
-    private async void UpdateAndShowLeaderboard(AsyncServices asyncServices, float newPlayerScore)
-    {
-        Debug.Log("Getting RESULTS");
-        //var leaderboardData = await asyncServices.GetLeaderboardScores(LeaderboardId);
-        //var leaderboardData = asyncServices.Test();
-        asyncServices.Test();
-        Debug.Log("GOT RESULTS");
-        //Debug.Log(JsonConvert.SerializeObject(leaderboardData));
-        //await asyncServices.PostLeaderboardPlayerScore(LeaderboardId, newPlayerScore);
-        //GameObject.Find("Canvas").transform.Find("Leaderboard").gameObject.active = true;
     }
 }

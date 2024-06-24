@@ -11,6 +11,7 @@ using Unity.Services.Authentication;
 using Unity.Services.CloudSave;
 using Unity.Services.CloudSave.Models;
 using Unity.Services.Leaderboards;
+using Unity.Services.Leaderboards.Models;
 
 public class AsyncServices : MonoBehaviour
 {
@@ -59,6 +60,14 @@ public class AsyncServices : MonoBehaviour
     }
 
     /*
+     * Authentication
+     */
+    public async Task UpdatePlayerName(string newPlayerName)
+    {
+        AuthenticationService.Instance.UpdatePlayerNameAsync(newPlayerName);
+    }
+
+    /*
      * Cloud Storage
      */
     private async void SavePlayerFileUnity(string fileName, byte[] fileBytes)
@@ -75,84 +84,29 @@ public class AsyncServices : MonoBehaviour
     /*
      * Leaderboard
      */
-    private async Task<System.Object> GetLeaderboardScoresUnity(string leaderboardID, AsyncServicesReturnCallback callback = null, int initialRank = -1, int range = -1)
+    public async Task<LeaderboardScoresPage> GetLeaderboardScores(string leaderboardID, int initialRank = -1, int range = -1)
     {
         if (initialRank > -1 && range > 0)
         {
             var scoresResponse = await LeaderboardsService.Instance.GetScoresAsync(leaderboardID, new GetScoresOptions { Offset = initialRank, Limit = range });
-            if (callback != null)
-            {
-                callback(scoresResponse);
-            }
             return scoresResponse;
         }
         else
         {
             var scoresResponse = await LeaderboardsService.Instance.GetScoresAsync(leaderboardID);
-            if (callback != null)
-            {
-                callback(scoresResponse);
-            }
             return scoresResponse;
         }
     }
 
-    private async Task<System.Object> GetLeaderboardPlayerScoreUnity(string leaderboardID, AsyncServicesReturnCallback callback = null)
+    public async Task<LeaderboardEntry> GetLeaderboardPlayerScore(string leaderboardID)
     {
         var scoreResponse = await LeaderboardsService.Instance.GetPlayerScoreAsync(leaderboardID);
-        if (callback != null)
-        {
-            callback(scoreResponse);
-        }
         return scoreResponse;
     }
 
-    private async Task<System.Object> PostLeaderboardPlayerScoreUnity(string leaderboardID, float leaderboardScore, AsyncServicesNotifyCallback callback = null)
+    public async Task<LeaderboardEntry> PostLeaderboardPlayerScore(string leaderboardID, float leaderboardScore)
     {
         var scoreResponse = await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, leaderboardScore);
-        if (callback != null)
-        {
-            callback();
-        }
         return scoreResponse;
-    }
-
-    public async void GetLeaderboardScoresAsync(string leaderboardID, AsyncServicesReturnCallback callback, int initialRank = -1, int range = -1)
-    {
-        Task.Run(() => GetLeaderboardScoresUnity(leaderboardID, callback, initialRank, range));
-    }
-
-    public async Task<System.Object> Test()
-    {
-        //await UnityServices.InitializeAsync();
-        //await AuthenticationService.Instance.SignInAnonymouslyAsync();
-        print("FETCHING LEADERBOARD");
-        var scoresResponse = await LeaderboardsService.Instance.GetScoresAsync("Level1Leaderboard");
-        return scoresResponse;
-    }
-
-    public async Task<System.Object> GetLeaderboardScores(string leaderboardID, int initialRank = -1, int range = -1)
-    {
-        return await Task.Run(() => GetLeaderboardScoresUnity(leaderboardID, null, initialRank, range));
-    }
-
-    public async void GetLeaderboardPlayerScoreAsync(string leaderboardID, AsyncServicesReturnCallback callback)
-    {
-        Task.Run(() => GetLeaderboardPlayerScoreUnity(leaderboardID, callback));
-    }
-
-    public async Task<System.Object> GetLeaderboardPlayerScore(string leaderboardID, AsyncServicesReturnCallback callback)
-    {
-        return await Task.Run(() => GetLeaderboardPlayerScoreUnity(leaderboardID));
-    }
-
-    public async void PostLeaderboardPlayerScoreAsync(string leaderboardID, float leaderboardScore, AsyncServicesNotifyCallback callback)
-    {
-        Task.Run(() => PostLeaderboardPlayerScoreUnity(leaderboardID, leaderboardScore, callback));
-    }
-
-    public async Task<System.Object> PostLeaderboardPlayerScore(string leaderboardID, float leaderboardScore)
-    {
-        return await Task.Run(() => PostLeaderboardPlayerScoreUnity(leaderboardID, leaderboardScore));
     }
 }
