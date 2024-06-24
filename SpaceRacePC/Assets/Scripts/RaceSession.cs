@@ -6,7 +6,10 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using TMPro;
+using Newtonsoft.Json;
 using System.Text;
+using Unity.Services.Core;
+using Unity.Services.Leaderboards;
 
 public class RaceSession : MonoBehaviour
 {
@@ -53,6 +56,14 @@ public class RaceSession : MonoBehaviour
         return raceTime;
     }
 
+    public void SetValues(string uid, int score, float raceTime)
+    {
+        this.uid = uid;
+        this.score = score;
+        this.raceTime = raceTime;
+        this.sessionID = System.Guid.NewGuid().ToString();
+    }
+
     //public void LoadFromLoginCallback()
     //{
     //    if (this.uid == null)
@@ -97,14 +108,13 @@ public class RaceSession : MonoBehaviour
         yield return www;
     }
 
-    public void SaveNewSession(string uid, int score, float raceTime, bool doSaveLog=true)
+    public void SaveNewSession(bool doSaveLog=true)
     {
-        string newSessionID = System.Guid.NewGuid().ToString();
-        StartCoroutine(Post(uid, newSessionID, score.ToString(), raceTime.ToString("0.000")));
+        StartCoroutine(Post(uid, sessionID, score.ToString(), raceTime.ToString("0.000")));
 
         if (doSaveLog)
         {
-            GameObject.Find("GameLogger").GetComponent<GameLogger>().SaveLogCloudSave(newSessionID+".txt");
+            GameObject.Find("GameLogger").GetComponent<GameLogger>().SaveLogAsCloudPlayerFile(sessionID + ".txt");
         }
     }
 }

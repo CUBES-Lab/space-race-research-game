@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Level2.unity
     guid: ac677af2600b9c049b620c03439df4df
+  - enabled: 1
+    path: Assets/Scenes/EndGameScene.unity
+    guid: f228cc47bd6ec4658a6d9fa067acf64e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8dca6642700d60948ac4e73dcd2b2bda,
       type: 2}
@@ -23,3 +26,4 @@ EditorBuildSettings:
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c68f490d5c7444347b7d8379c4de4e46,
       type: 2}
+  m_UseUCBPForAssetBundles: 0
