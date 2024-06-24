@@ -70,14 +70,9 @@ public class AsyncServices : MonoBehaviour
     /*
      * Cloud Storage
      */
-    private async void SavePlayerFileUnity(string fileName, byte[] fileBytes)
+    public async void SavePlayerFileToCloud(string fileName, byte[] fileBytes)
     {
         await CloudSaveService.Instance.Files.Player.SaveAsync(fileName, fileBytes);
-    }
-
-    public void SavePlayerFileToCloud(string fileName, byte[] fileBytes)
-    {
-        Task.Run(() => SavePlayerFileUnity(fileName, fileBytes));
     }
 
 
