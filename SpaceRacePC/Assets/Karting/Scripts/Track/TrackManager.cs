@@ -109,32 +109,35 @@ namespace KartGame.Track
         /// </summary>
         public void StopRace ()
         {
-            m_IsRaceRunning = false;
-
-            foreach (KeyValuePair<IRacer, Checkpoint> racerNextCheckpoint in m_RacerNextCheckpoints)
+            if (!m_IsRaceStopped)
             {
-                racerNextCheckpoint.Key.DisableControl ();
-                racerNextCheckpoint.Key.PauseTimer ();
+                m_IsRaceRunning = false;
+
+                foreach (KeyValuePair<IRacer, Checkpoint> racerNextCheckpoint in m_RacerNextCheckpoints)
+                {
+                    racerNextCheckpoint.Key.DisableControl();
+                    racerNextCheckpoint.Key.PauseTimer();
+                }
+
+                //m_leaderboardRecord.Save();
+
+                // Log the final score and race time
+                ParticipantInfo participantInfo = GameObject.Find("ParticipantInfo").GetComponent<ParticipantInfo>();
+                KartCollect kartCollect = GameObject.Find("Kart").GetComponent<KartCollect>();
+                Racer kartRacer = GameObject.Find("Kart").GetComponent<Racer>();
+                string uid = participantInfo.GetUID();
+                int score = kartCollect.score;
+                float raceTime = kartRacer.GetRaceTime();
+                GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Stop Race", "Session score: " + score.ToString() + ", Race Time: " + raceTime.ToString("0.000"));
+
+                // Save race session
+                GameObject gameManager = GameObject.Find("GameManager");
+                RaceSession raceSession = gameManager.GetComponent<RaceSession>();
+                raceSession.SetValues(uid, score, raceTime);
+                raceSession.SaveNewSession();
+
+                m_IsRaceStopped = true;
             }
-
-            //m_leaderboardRecord.Save();
-
-            // Log the final score and race time
-            ParticipantInfo participantInfo = GameObject.Find("ParticipantInfo").GetComponent<ParticipantInfo>();
-            KartCollect kartCollect = GameObject.Find("Kart").GetComponent<KartCollect>();
-            Racer kartRacer = GameObject.Find("Kart").GetComponent<Racer>();
-            string uid = participantInfo.GetUID();
-            int score = kartCollect.score;
-            float raceTime = kartRacer.GetRaceTime();
-            GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Stop Race", "Session score: " + score.ToString() + ", Race Time: " + raceTime.ToString("0.000"));
-
-            // Save race session
-            GameObject gameManager = GameObject.Find("GameManager");
-            RaceSession raceSession = gameManager.GetComponent<RaceSession>();
-            raceSession.SetValues(uid, score, raceTime);
-            raceSession.SaveNewSession();
-
-            m_IsRaceStopped = true;
         }
 
         public void Update ()
