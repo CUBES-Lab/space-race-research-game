@@ -25,7 +25,7 @@ public class KartCollect : MonoBehaviour
     {
         if (scoreUpdated)
         {
-            scoreText.text = "Score: " + score;
+            scoreText.text = "Coins: " + score;
             scoreUpdated = false;
         }   
     }

@@ -11,7 +11,8 @@ using Unity.Services.Leaderboards.Models;
 
 public class EndGameScene : MonoBehaviour
 {
-    const string LeaderboardID = "Level1Leaderboard";
+    const string LeaderboardIDFixedCoins = "Level1Leaderboard";
+    const string LeaderboardIDRandomizedCoins = "Level1RandomizedCoins";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     async void Start()
@@ -32,6 +33,7 @@ public class EndGameScene : MonoBehaviour
 
             if (participantInfo.GetUsingLeaderboard())
             {
+                string LeaderboardID = participantInfo.GetUsingRandomizedCoins() ? LeaderboardIDRandomizedCoins : LeaderboardIDFixedCoins;
                 AsyncServices asyncServices = GameObject.Find("AsyncServices").GetComponent<AsyncServices>();
                 var playerScore = await asyncServices.PostLeaderboardPlayerScore(LeaderboardID, finalScore);
                 var scores = await asyncServices.GetLeaderboardScores(LeaderboardID);
@@ -49,7 +51,6 @@ public class EndGameScene : MonoBehaviour
                     }
                 }
 
-                //var playerScore = await asyncServices.GetLeaderboardPlayerScore(LeaderboardID);
                 TMP_InputField playerRankText = leaderboard.transform.Find("PlayerLeaderboard").transform.Find("PlayerRank").GetComponent<TMP_InputField>();
                 playerRankText.text = "You are rank " + (playerScore.Rank + 1).ToString();
 
