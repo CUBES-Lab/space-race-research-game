@@ -131,7 +131,8 @@ namespace KartGame.Track
             // Save race session
             GameObject gameManager = GameObject.Find("GameManager");
             RaceSession raceSession = gameManager.GetComponent<RaceSession>();
-            raceSession.SaveNewSession(uid, score, raceTime);
+            raceSession.SetValues(uid, score, raceTime);
+            raceSession.SaveNewSession();
 
             m_IsRaceStopped = true;
         }

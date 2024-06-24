@@ -35,6 +35,7 @@ public class SceneController : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(GameObject.Find("ParticipantInfo"));
             DontDestroyOnLoad(GameObject.Find("GameLogger"));
+            DontDestroyOnLoad(GameObject.Find("AsyncServices"));
             load = null;
             SceneManager.sceneLoaded += OnSceneLoaded;
         }

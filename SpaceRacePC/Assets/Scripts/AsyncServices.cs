@@ -1,0 +1,112 @@
+using UnityEngine;
+using System;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Unity.Services.Core;
+using Unity.Services.Authentication;
+using Unity.Services.CloudSave;
+using Unity.Services.CloudSave.Models;
+using Unity.Services.Leaderboards;
+using Unity.Services.Leaderboards.Models;
+
+public class AsyncServices : MonoBehaviour
+{
+    public delegate void AsyncServicesReturnCallback(System.Object retObj);
+    public delegate void AsyncServicesNotifyCallback();
+
+    bool isSignedIn = false;
+
+    async void Awake()
+    {
+        try
+        {
+            await UnityServices.InitializeAsync();
+            await SignInAnonymously();
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+        }
+    }
+
+    async Task SignInAnonymously()
+    {
+        AuthenticationService.Instance.SignedIn += () =>
+        {
+            Debug.Log("Signed in as: " + AuthenticationService.Instance.PlayerId);
+        };
+        AuthenticationService.Instance.SignInFailed += s =>
+        {
+            // Take some action here...
+            Debug.Log(s);
+        };
+
+        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        isSignedIn = true;
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    async void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+    /*
+     * Authentication
+     */
+    public async Task UpdatePlayerName(string newPlayerName)
+    {
+        AuthenticationService.Instance.UpdatePlayerNameAsync(newPlayerName);
+    }
+
+    /*
+     * Cloud Storage
+     */
+    private async void SavePlayerFileUnity(string fileName, byte[] fileBytes)
+    {
+        await CloudSaveService.Instance.Files.Player.SaveAsync(fileName, fileBytes);
+    }
+
+    public void SavePlayerFileToCloud(string fileName, byte[] fileBytes)
+    {
+        Task.Run(() => SavePlayerFileUnity(fileName, fileBytes));
+    }
+
+
+    /*
+     * Leaderboard
+     */
+    public async Task<LeaderboardScoresPage> GetLeaderboardScores(string leaderboardID, int initialRank = -1, int range = -1)
+    {
+        if (initialRank > -1 && range > 0)
+        {
+            var scoresResponse = await LeaderboardsService.Instance.GetScoresAsync(leaderboardID, new GetScoresOptions { Offset = initialRank, Limit = range });
+            return scoresResponse;
+        }
+        else
+        {
+            var scoresResponse = await LeaderboardsService.Instance.GetScoresAsync(leaderboardID);
+            return scoresResponse;
+        }
+    }
+
+    public async Task<LeaderboardEntry> GetLeaderboardPlayerScore(string leaderboardID)
+    {
+        var scoreResponse = await LeaderboardsService.Instance.GetPlayerScoreAsync(leaderboardID);
+        return scoreResponse;
+    }
+
+    public async Task<LeaderboardEntry> PostLeaderboardPlayerScore(string leaderboardID, float leaderboardScore)
+    {
+        var scoreResponse = await LeaderboardsService.Instance.AddPlayerScoreAsync(leaderboardID, leaderboardScore);
+        return scoreResponse;
+    }
+}

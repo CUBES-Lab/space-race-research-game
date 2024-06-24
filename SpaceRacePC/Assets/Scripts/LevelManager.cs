@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
     // This is set to 1, because this is not incremented in the title screen.
     public int curLevel = 1;
 
+    public string endGameLevel = "EndGameScene";
+
     TrackManager trackManager;
 
     SceneController sceneController;
@@ -30,7 +32,7 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
-        if (curLevel != 0 && trackManager != null && trackManager.IsRaceStopped)
+        if (curLevel != 0 && trackManager != null && trackManager.IsRaceStopped && GetLevel() != endGameLevel)
         {
             if (cutsceneController.enabled)
             {
@@ -38,14 +40,16 @@ public class LevelManager : MonoBehaviour
                 if (!cutsceneController.isPlaying())
                 {
                     trackManager = null;
-                    string nextLevel = GetNextLevel();
+                    IncrementLevel();
+                    string nextLevel = GetLevel();
                     GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Level Load", "Loading level "+nextLevel);
                     sceneController.LoadScene(nextLevel);
                 }
             } else
             {
                 trackManager = null;
-                string nextLevel = GetNextLevel();
+                IncrementLevel();
+                string nextLevel = GetLevel();
                 GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Level Load", "Loading level " + nextLevel);
                 sceneController.LoadScene(nextLevel);
             }
@@ -64,18 +68,34 @@ public class LevelManager : MonoBehaviour
     {
         if (curLevel != 0)
         {
-            cutsceneController = GameObject.Find("Timeline").GetComponent<CutsceneController>();
+            cutsceneController = GameObject.Find("EndGameTimeline").GetComponent<CutsceneController>();
         }
-
     }
 
-    string GetNextLevel()
+    public void LoadLevel(int levelNumber)
+    {
+        if (levelNumber > 0 && levelNumber <= numberOfLevels)
+        {
+            curLevel = levelNumber;
+            GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Level Load", "Loading level " + GetLevel());
+            sceneController.LoadScene(GetLevel());
+        }
+        else
+        {
+            Debug.Log("ERROR: level number is outside of range");
+        }
+    }
+
+    private void IncrementLevel()
     {
         ++curLevel;
+    }
+
+    string GetLevel()
+    {
         if (curLevel > numberOfLevels)
         {
-            curLevel = 1;
-            return "Title";
+            return endGameLevel;
         }
         else 
         {

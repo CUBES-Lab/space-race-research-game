@@ -11,8 +11,8 @@ public class KartCollect : MonoBehaviour
 {
     public int score;
    
-    private int coinPoints = 5;
-    private int bottleCapPoints = 10;
+    private int coinPoints = 1;
+    private int bottleCapPoints = 1;
 
     private TextMeshProUGUI scoreText;
     private bool scoreUpdated;
