@@ -51,7 +51,10 @@ public class KartCollect : MonoBehaviour
     IEnumerator CollectAndDestory(GameObject collectable)
     {
         collectable.GetComponent<MeshRenderer>().enabled = false;
-
+        foreach (Transform child in collectable.transform)
+        {
+            child.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        }
         collectable.GetComponent<CapsuleCollider>().enabled = false;
         if (collectable.tag == "Cap")
         {
