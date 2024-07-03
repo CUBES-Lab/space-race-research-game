@@ -10986,6 +10986,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09ef6147e73a43349cab2d3a335fe07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &367548142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 367548143}
+  m_Layer: 0
+  m_Name: FinishLinePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &367548143
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367548142}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.945265, y: 2.5101151, z: 0.6889057}
+  m_LocalScale: {x: 1.9498981, y: 1.3188956, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &373402517 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
@@ -25947,14 +25978,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackManager: {fileID: 810926067}
-  finishLine: {fileID: 0}
+  finishLine: {fileID: 1327672573}
   startPortal: {fileID: 0}
   billboardContents: {fileID: 1327672572}
   highInvolvementBillboardMat: {fileID: 2100000, guid: 16b2d0f282c2c0c47a829d7e2b9219c2,
     type: 2}
   lowInvolvementBillboardMat: {fileID: 2100000, guid: c7d91ae0e5a724c409fcf53bb16b129b,
     type: 2}
-  endFinishLinePos: {fileID: 0}
+  endFinishLinePos: {fileID: 367548143}
   playerRacer: {fileID: 0}
 --- !u!4 &731402287
 Transform:
@@ -41321,7 +41352,7 @@ PrefabInstance:
     - target: {fileID: 4129847095190374778, guid: 4124bf3d4b8e92146a620a638ac5a619,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5101151
+      value: -8.94
       objectReference: {fileID: 0}
     - target: {fileID: 4129847095190374778, guid: 4124bf3d4b8e92146a620a638ac5a619,
         type: 3}
@@ -41381,6 +41412,12 @@ PrefabInstance:
 --- !u!1 &1327672572 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1018988590098085804, guid: 4124bf3d4b8e92146a620a638ac5a619,
+    type: 3}
+  m_PrefabInstance: {fileID: 1327672571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1327672573 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4129847095190374778, guid: 4124bf3d4b8e92146a620a638ac5a619,
     type: 3}
   m_PrefabInstance: {fileID: 1327672571}
   m_PrefabAsset: {fileID: 0}
@@ -55642,6 +55679,7 @@ SceneRoots:
   - {fileID: 9097518078296258987}
   - {fileID: 915320295786218630}
   - {fileID: 8473932218178274596}
+  - {fileID: 367548143}
   - {fileID: 1327672571}
   - {fileID: 1348019049}
   - {fileID: 1399869389}
