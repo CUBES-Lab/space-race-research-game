@@ -1530,13 +1530,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.8505
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -62.829422
       objectReference: {fileID: 0}
     - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -36.9
+      value: -37.46
       objectReference: {fileID: 0}
     - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
         type: 3}
@@ -1577,6 +1582,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450129487767892674, guid: 4ca810eee207a9c47a8ce33ea21c709d,
+        type: 3}
+      propertyPath: kartLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2370,6 +2380,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.5469
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.65786
       objectReference: {fileID: 0}
@@ -2417,6 +2432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450129487767892674, guid: 4ca810eee207a9c47a8ce33ea21c709d,
+        type: 3}
+      propertyPath: kartLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3207,6 +3227,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.1201
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -90.57
       objectReference: {fileID: 0}
@@ -3254,6 +3279,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450129487767892674, guid: 4ca810eee207a9c47a8ce33ea21c709d,
+        type: 3}
+      propertyPath: kartLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -55192,8 +55222,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1634089789674906150, guid: 08627a91b0a679a47a06bf34443532a3,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.7626624
+      objectReference: {fileID: 0}
+    - target: {fileID: 1634089789674906150, guid: 08627a91b0a679a47a06bf34443532a3,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1634089789674906150, guid: 08627a91b0a679a47a06bf34443532a3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.05
       objectReference: {fileID: 0}
     - target: {fileID: 2619373687018011095, guid: 08627a91b0a679a47a06bf34443532a3,
         type: 3}
@@ -55204,6 +55244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isStartFinishLine
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137789652727152964, guid: 08627a91b0a679a47a06bf34443532a3,
+        type: 3}
+      propertyPath: kartLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 8703922469202860465, guid: 08627a91b0a679a47a06bf34443532a3,
         type: 3}

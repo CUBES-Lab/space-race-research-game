@@ -27,6 +27,7 @@ public class EndController : MonoBehaviour
 
     void Start()
     {
+        setupEnd = false;
         //adManager = GameObject.Find("GameManager").GetComponent<AdManager>();
 
         //// BB - This replaces the checkered billboard material with the logo right away
