@@ -79,6 +79,10 @@ public class SceneController : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        if (!Screen.fullScreen)
+        {
+            Screen.fullScreen = true;
+        }
         SceneManager.LoadScene(sceneName);                
     }
 
