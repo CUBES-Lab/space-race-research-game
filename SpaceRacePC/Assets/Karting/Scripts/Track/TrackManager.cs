@@ -136,6 +136,11 @@ namespace KartGame.Track
                 raceSession.SetValues(uid, score, raceTime);
                 raceSession.SaveNewSession();
 
+                // Update the lap time display
+                TimeDisplay timeDisplay = GameObject.Find("TimeDisplayCanvas").GetComponent<TimeDisplay>();
+                List<TimeDisplay.DisplayOptions> displayList = new List<TimeDisplay.DisplayOptions>() { TimeDisplay.DisplayOptions.FinishedLaps };
+                timeDisplay.RebindDisplayOptions(displayList);
+
                 m_IsRaceStopped = true;
             }
         }

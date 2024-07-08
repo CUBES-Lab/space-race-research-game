@@ -153,12 +153,13 @@ namespace KartGame.Track
         void DisplayFinishedLapTimes()
         {
             List<float> lapTimes = m_Racer.GetLapTimes();
-            for (int i = 0; i < lapTimes.Count; i++)
+            if (lapTimes.Count > 1)
             {
-                m_StringBuilder.Append("Lap ");
-                m_StringBuilder.Append(i + 1);
-                m_StringBuilder.Append(": ");
-                m_StringBuilder.Append(lapTimes[i].ToString("0.00"));
+                m_StringBuilder.Append("Lap:  ");
+                m_StringBuilder.Append(lapTimes[lapTimes.Count - 1].ToString("0.00"));
+                m_StringBuilder.Append('\n');
+                m_StringBuilder.Append("Last: ");
+                m_StringBuilder.Append(lapTimes[lapTimes.Count - 2].ToString("0.00"));
                 m_StringBuilder.Append('\n');
             }
         }

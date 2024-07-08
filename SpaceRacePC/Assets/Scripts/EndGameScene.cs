@@ -28,7 +28,7 @@ public class EndGameScene : MonoBehaviour
             float finalScore = raceTime - score;
             GameObject.Find("UID").GetComponent<TMP_InputField>().text = "UID: "+uid;
             GameObject.Find("RaceTime").GetComponent<TMP_InputField>().text = "Time: "+raceTime.ToString("0.000");
-            GameObject.Find("Score").GetComponent<TMP_InputField>().text = "Coins: " + score.ToString() + "/100";
+            GameObject.Find("Score").GetComponent<TMP_InputField>().text = "Coins: " + score.ToString() + "/200";
             GameObject.Find("FinalScore").GetComponent<TMP_InputField>().text = "Final Time: "+ finalScore.ToString("0.000");
 
             if (participantInfo.GetUsingLeaderboard())
