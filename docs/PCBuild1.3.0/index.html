@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
+    <div style="height: 100px"><h1 style="background: gray; width: 960px; text-align: center; margin: auto"><b>Please avoid refreshing this page while a race is active</b></h1></div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -113,6 +114,7 @@
 
       document.body.appendChild(script);
 
+      window.onbeforeunload = function () {return false;}
     </script>
   </body>
 </html>

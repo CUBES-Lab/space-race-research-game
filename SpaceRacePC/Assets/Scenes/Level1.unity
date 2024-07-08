@@ -1209,7 +1209,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1919
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1530,13 +1530,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.8505
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -62.829422
       objectReference: {fileID: 0}
     - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -36.9
+      value: -37.46
       objectReference: {fileID: 0}
     - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
         type: 3}
@@ -1578,6 +1583,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8450129487767892674, guid: 4ca810eee207a9c47a8ce33ea21c709d,
+        type: 3}
+      propertyPath: kartLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1596,6 +1606,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -1666,6 +1686,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -1676,6 +1701,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2350,6 +2380,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.5469
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.65786
       objectReference: {fileID: 0}
@@ -2397,6 +2432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450129487767892674, guid: 4ca810eee207a9c47a8ce33ea21c709d,
+        type: 3}
+      propertyPath: kartLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2576,12 +2616,12 @@ PrefabInstance:
     - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
         type: 3}
       propertyPath: m_fontSize
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
         type: 3}
@@ -3187,6 +3227,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.1201
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946376847079625120, guid: 4ca810eee207a9c47a8ce33ea21c709d,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -90.57
       objectReference: {fileID: 0}
@@ -3234,6 +3279,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450129487767892674, guid: 4ca810eee207a9c47a8ce33ea21c709d,
+        type: 3}
+      propertyPath: kartLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3353,6 +3403,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -3423,6 +3483,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -3433,6 +3498,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3941,7 +4011,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1919
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3981,6 +4051,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -4051,6 +4131,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -4061,6 +4146,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10986,6 +11076,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09ef6147e73a43349cab2d3a335fe07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &367548142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 367548143}
+  m_Layer: 0
+  m_Name: FinishLinePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &367548143
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367548142}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.945265, y: 2.5101151, z: 0.6889057}
+  m_LocalScale: {x: 1.9498981, y: 1.3188956, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &373402517 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
@@ -11861,8 +11982,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: -100}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: -175, y: -175}
+  m_SizeDelta: {x: 280, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &442832523
 MonoBehaviour:
@@ -17414,6 +17535,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -17484,6 +17615,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -17494,6 +17630,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17996,6 +18137,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -18066,6 +18217,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -18076,6 +18232,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19635,15 +19796,15 @@ RectTransform:
   m_GameObject: {fileID: 669522491}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2070050719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: -100}
-  m_SizeDelta: {x: 170, y: 170}
+  m_AnchoredPosition: {x: -175, y: -175}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &669522493
 MonoBehaviour:
@@ -19665,7 +19826,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: fc3600f01f1737143b5705bdce0e6bc5, type: 3}
+  m_Texture: {fileID: 2800000, guid: 367b3de829de8a94b8fe5464778d91a5, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -25433,6 +25594,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -25513,6 +25684,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -25523,6 +25699,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25947,14 +26128,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackManager: {fileID: 810926067}
-  finishLine: {fileID: 0}
+  finishLine: {fileID: 1327672573}
   startPortal: {fileID: 0}
   billboardContents: {fileID: 1327672572}
   highInvolvementBillboardMat: {fileID: 2100000, guid: 16b2d0f282c2c0c47a829d7e2b9219c2,
     type: 2}
   lowInvolvementBillboardMat: {fileID: 2100000, guid: c7d91ae0e5a724c409fcf53bb16b129b,
     type: 2}
-  endFinishLinePos: {fileID: 0}
+  endFinishLinePos: {fileID: 367548143}
   playerRacer: {fileID: 0}
 --- !u!4 &731402287
 Transform:
@@ -27411,6 +27592,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -27481,6 +27672,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -27491,6 +27687,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28208,6 +28409,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -28278,6 +28489,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -28288,6 +28504,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29134,6 +29355,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -29204,6 +29435,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -29214,6 +29450,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33838,6 +34079,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -33908,6 +34159,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -33918,6 +34174,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34051,6 +34312,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -34121,6 +34392,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -34131,6 +34407,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41321,7 +41602,7 @@ PrefabInstance:
     - target: {fileID: 4129847095190374778, guid: 4124bf3d4b8e92146a620a638ac5a619,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5101151
+      value: -8.94
       objectReference: {fileID: 0}
     - target: {fileID: 4129847095190374778, guid: 4124bf3d4b8e92146a620a638ac5a619,
         type: 3}
@@ -41381,6 +41662,12 @@ PrefabInstance:
 --- !u!1 &1327672572 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1018988590098085804, guid: 4124bf3d4b8e92146a620a638ac5a619,
+    type: 3}
+  m_PrefabInstance: {fileID: 1327672571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1327672573 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4129847095190374778, guid: 4124bf3d4b8e92146a620a638ac5a619,
     type: 3}
   m_PrefabInstance: {fileID: 1327672571}
   m_PrefabAsset: {fileID: 0}
@@ -43094,6 +43381,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -43164,6 +43461,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -43174,6 +43476,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43371,6 +43678,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -43441,6 +43758,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -43451,6 +43773,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45511,6 +45838,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -45581,6 +45918,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -45591,6 +45933,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4126308969757332890, guid: ea87863efa0b941408cdd4b102308f4c,
         type: 3}
       propertyPath: m_TagString
@@ -46147,6 +46494,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -46217,6 +46574,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -46227,6 +46589,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -46556,7 +46923,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629246598}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Boostpads
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46613,6 +46980,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -46683,6 +47060,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -46693,6 +47075,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -47826,6 +48213,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -47896,6 +48293,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -47906,6 +48308,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49480,6 +49887,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -49550,6 +49967,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -49560,6 +49982,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -52282,7 +52709,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1919
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -52732,6 +53159,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -52802,6 +53239,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -52812,6 +53254,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53026,6 +53473,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -53096,6 +53553,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -53106,6 +53568,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53224,6 +53691,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -53294,6 +53771,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -53304,6 +53786,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53841,6 +54328,16 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 379603495342321507, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047336663365419677, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -53911,6 +54408,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPad (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 2047336664104694665, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2047336664104694666, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}
       propertyPath: boostStats.modifiers.acceleration
@@ -53921,6 +54423,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e73c6452fff38bf4a9939d70e7a96f51, type: 2}
+    - target: {fileID: 3435785214996503793, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -54715,8 +55222,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1634089789674906150, guid: 08627a91b0a679a47a06bf34443532a3,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.7626624
+      objectReference: {fileID: 0}
+    - target: {fileID: 1634089789674906150, guid: 08627a91b0a679a47a06bf34443532a3,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1634089789674906150, guid: 08627a91b0a679a47a06bf34443532a3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.05
       objectReference: {fileID: 0}
     - target: {fileID: 2619373687018011095, guid: 08627a91b0a679a47a06bf34443532a3,
         type: 3}
@@ -54727,6 +55244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isStartFinishLine
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137789652727152964, guid: 08627a91b0a679a47a06bf34443532a3,
+        type: 3}
+      propertyPath: kartLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 8703922469202860465, guid: 08627a91b0a679a47a06bf34443532a3,
         type: 3}
@@ -54876,6 +55398,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.00000050659776
       objectReference: {fileID: 0}
+    - target: {fileID: 1443270160100509021, guid: f138686b91c1fb5418b32251e1fd6798,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1919
+      objectReference: {fileID: 0}
     - target: {fileID: 1443270160448470307, guid: f138686b91c1fb5418b32251e1fd6798,
         type: 3}
       propertyPath: m_LocalRotation.y
@@ -54890,6 +55417,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811021885798310308, guid: f138686b91c1fb5418b32251e1fd6798,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 712
       objectReference: {fileID: 0}
     - target: {fileID: 2322817470193383074, guid: f138686b91c1fb5418b32251e1fd6798,
         type: 3}
@@ -54978,7 +55510,7 @@ PrefabInstance:
     - target: {fileID: 3109687787520293607, guid: 8d79384b550589d498c55817e4277af2,
         type: 3}
       propertyPath: m_fontSize
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3109687787520293607, guid: 8d79384b550589d498c55817e4277af2,
         type: 3}
@@ -54988,7 +55520,7 @@ PrefabInstance:
     - target: {fileID: 3109687787520293607, guid: 8d79384b550589d498c55817e4277af2,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3109687787520293607, guid: 8d79384b550589d498c55817e4277af2,
         type: 3}
@@ -55642,6 +56174,7 @@ SceneRoots:
   - {fileID: 9097518078296258987}
   - {fileID: 915320295786218630}
   - {fileID: 8473932218178274596}
+  - {fileID: 367548143}
   - {fileID: 1327672571}
   - {fileID: 1348019049}
   - {fileID: 1399869389}
