@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Unity.Services.Core;
+using Unity.Services.Core.Environments;
 using Unity.Services.Authentication;
 using Unity.Services.CloudSave;
 using Unity.Services.CloudSave.Models;
@@ -24,7 +25,10 @@ public class AsyncServices : MonoBehaviour
     {
         try
         {
-            await UnityServices.InitializeAsync();
+            var options = new InitializationOptions();
+            options.SetEnvironmentName("testing");
+
+            await UnityServices.InitializeAsync(options);
             await SignInAnonymously();
         }
         catch (Exception e)
