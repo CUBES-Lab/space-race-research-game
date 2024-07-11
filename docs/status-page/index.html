@@ -37,7 +37,7 @@
             // Function to extract UID from URL
             function getUIDFromURL() {
                 const urlParams = new URLSearchParams(window.location.search);
-                return urlParams.get('uid');
+                return urlParams.get('uid') ? urlParams.get('uid').toUpperCase() : '';
             }
 
             // Extract UID from URL
