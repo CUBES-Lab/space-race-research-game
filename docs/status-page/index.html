@@ -61,9 +61,14 @@
                     const specialLink = document.getElementById('specialLink');
                     specialLink.classList.remove('disabled');
                     specialLink.removeAttribute('disabled');
+
                     const specialTextField = document.getElementById('specialTextField');
                     specialTextField.classList.remove('disabled');
                     specialTextField.removeAttribute('disabled');
+
+                    const specialButton = document.getElementById('specialButton');
+                    specialButton.classList.remove('disabled');
+                    specialButton.removeAttribute('disabled');
                 }
             }).catch(error => console.error('Error fetching data:', error));
 
