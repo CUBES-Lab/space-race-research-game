@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    <div style="height: 100px"><h1 style="background: gray; width: 960px; text-align: center; margin: auto"><b>Please avoid refreshing this page while a race is active</b></h1></div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -53,16 +52,16 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/PCBuild1.3.0.loader.js";
+      var loaderUrl = buildUrl + "/PCBuild1.5.0.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/PCBuild1.3.0.data",
-        frameworkUrl: buildUrl + "/PCBuild1.3.0.framework.js",
-        codeUrl: buildUrl + "/PCBuild1.3.0.wasm",
+        dataUrl: buildUrl + "/PCBuild1.5.0.data",
+        frameworkUrl: buildUrl + "/PCBuild1.5.0.framework.js",
+        codeUrl: buildUrl + "/PCBuild1.5.0.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "CUBES Lab",
         productName: "Space Race Research Game",
-        productVersion: "1.3.0",
+        productVersion: "1.4.0",
         showBanner: unityShowBanner,
       };
 
@@ -114,7 +113,6 @@
 
       document.body.appendChild(script);
 
-      window.onbeforeunload = function () {return false;}
     </script>
   </body>
 </html>
