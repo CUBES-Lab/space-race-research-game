@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="step-title">Step 1</h1>
+        <p>Please fill up the pre-survey form:</p>
+        <a id="preSurveyLink" href="www.google.com" target="_blank" class="interactive-link">Pre-Survey Form</a>
+
+        <div class="text-boxes">
+            <label for="preSurveyText">Paste text from the pre-survey form here:</label>
+            <textarea id="preSurveyText" rows="2" cols="50" required></textarea>
+            <button id="submitPreSurveyText">Submit Text</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="step2Container">
+        <h1 class="step-title">Step 2</h1>
+        <p>Now you can proceed to the page to finish the pilot study:</p>
+        <a id="nextStepLink" href="https://my.imotions.com/collect/v446/#s/ee4bf2ad-1e9f-4714-8219-ce9f69fbd817?iMotionsLocale=en-US&iMotionsStimulusBlock=Study%20flow%201" target="_blank" class="interactive-link disabled">Next Step</a>
+    </div>
+
+    <div class="container">
+        <h1 class="step-title"> Game Sessions </h1>
+        <div id="uidCountContainer"></div>
+        <a id="specialLink" href="https://example-special-link.com" class="interactive-link disabled" target="_blank">Special Link</a>
+        <textarea id="specialTextField" rows="2" cols="50" class="disabled" disabled></textarea>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/public-google-sheets-parser@latest"></script>
+    <script>document.addEventListener("DOMContentLoaded", function () {
+            // Function to extract UID from URL
+            function getUIDFromURL() {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get('uid');
+            }
+
+            // Extract UID from URL
+            const uid = getUIDFromURL();
+
+            // Handle UID count logic
+            const parser = new PublicGoogleSheetsParser('1-ZbloFuaSxy8jxOQQlK3O6scjx5R4C6rc7tYs_ZYBKM');
+            parser.parse().then(data => {
+                const container = document.getElementById('uidCountContainer');
+
+                const filteredData = data.filter(item => item['UID '] == uid || uid == '');
+                const uidCount = filteredData.length;
+
+                const uidCountButton = document.createElement("button");
+                uidCountButton.className = 'uid-button';
+                uidCountButton.textContent = `You played the game ${uidCount} times`;
+
+                container.appendChild(uidCountButton);
+
+                if (uidCount >= 10) {
+                    const specialLink = document.getElementById('specialLink');
+                    specialLink.classList.remove('disabled');
+                    specialLink.removeAttribute('disabled');
+                    const specialTextField = document.getElementById('specialTextField');
+                    specialTextField.classList.remove('disabled');
+                    specialTextField.removeAttribute('disabled');
+                }
+            }).catch(error => console.error('Error fetching data:', error));
+
+            // Handle pre-survey form submission
+            const preSurveyText = document.getElementById('preSurveyText');
+            const submitPreSurveyText = document.getElementById('submitPreSurveyText');
+            const step2Container = document.getElementById('step2Container');
+            const nextStepLink = document.getElementById('nextStepLink');
+
+            submitPreSurveyText.addEventListener('click', function (event) {
+                if (!preSurveyText.value.trim()) {
+                    alert('Please fill in the field with the text that was present in the link you just visited.');
+                    preSurveyText.style.border = '2px solid red';
+                    event.preventDefault();
+                } else {
+                    preSurveyText.disabled = true;
+                    submitPreSurveyText.disabled = true;
+                    nextStepLink.classList.remove('disabled');
+                    nextStepLink.removeAttribute('disabled');
+                    step2Container.classList.remove('hidden');
+                    preSurveyText.style.border = ''; // Reset border
+                }
+            });
+        });</script>
+</body>
+</html>
