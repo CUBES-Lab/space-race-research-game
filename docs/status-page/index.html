@@ -10,7 +10,7 @@
     <div class="container">
         <h1 class="step-title">Step 1</h1>
         <p>Please fill up the pre-survey form:</p>
-        <a id="preSurveyLink" href="www.google.com" target="_blank" class="interactive-link">Pre-Survey Form</a>
+        <a id="preSurveyLink" href="https://memphis.co1.qualtrics.com/jfe/form/SV_5uacDAOz6WHH8Oi" target="_blank" class="interactive-link">Pre-Survey Form</a>
 
         <div class="text-boxes">
             <label for="preSurveyText">Paste text from the pre-survey form here:</label>
@@ -21,18 +21,23 @@
 
     <div class="container hidden" id="step2Container">
         <h1 class="step-title">Step 2</h1>
-        <p>Now you can proceed to the page to finish the pilot study:</p>
+        <p>Now you can proceed to the page to finish the pilot study</p>
         <a id="nextStepLink" href="https://my.imotions.com/collect/v446/#s/ee4bf2ad-1e9f-4714-8219-ce9f69fbd817?iMotionsLocale=en-US&iMotionsStimulusBlock=Study%20flow%201" target="_blank" class="interactive-link disabled">Next Step</a>
     </div>
 
     <div class="container">
         <h1 class="step-title"> Game Sessions </h1>
         <div id="uidCountContainer"></div>
-        <a id="specialLink" href="https://example-special-link.com" class="interactive-link disabled" target="_blank">Special Link</a>
-        <textarea id="specialTextField" rows="2" cols="50" class="disabled" disabled></textarea>
+        <a id="specialLink" href="https://memphis.co1.qualtrics.com/jfe/form/SV_8eRQ3j8RuX5CLNc" class="interactive-link disabled" target="_blank">Post Survey Link </a>
+        <div>
+            <textarea id="specialTextField" rows="2" cols="50" class="disabled" disabled></textarea>
+            <button id="submitPostSurveyText">Submit Text</button>
+        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/public-google-sheets-parser@latest"></script>
+
     <script>document.addEventListener("DOMContentLoaded", function () {
             // Function to extract UID from URL
             function getUIDFromURL() {
@@ -43,55 +48,76 @@
             // Extract UID from URL
             const uid = getUIDFromURL();
 
-            // Handle UID count logic
-            const parser = new PublicGoogleSheetsParser('1-ZbloFuaSxy8jxOQQlK3O6scjx5R4C6rc7tYs_ZYBKM');
-            parser.parse().then(data => {
-                const container = document.getElementById('uidCountContainer');
+            if (uid) {
+                // Handle UID count logic
+                const parser = new PublicGoogleSheetsParser('1-ZbloFuaSxy8jxOQQlK3O6scjx5R4C6rc7tYs_ZYBKM');
+                parser.parse().then(data => {
+                    const container = document.getElementById('uidCountContainer');
 
-                const filteredData = data.filter(item => item['UID '] == uid || uid == '');
-                const uidCount = filteredData.length;
+                    const filteredData = data.filter(item => item['UID '] == uid);
 
-                const uidCountButton = document.createElement("button");
-                uidCountButton.className = 'uid-button';
-                uidCountButton.textContent = `You played the game ${uidCount} times`;
+                    const uidCount = filteredData.length;
 
-                container.appendChild(uidCountButton);
+                    const uidCountButton = document.createElement("button");
+                    uidCountButton.className = 'uid-button';
+                    uidCountButton.textContent = `You played the game ${uidCount} times`;
 
-                if (uidCount >= 10) {
-                    const specialLink = document.getElementById('specialLink');
-                    specialLink.classList.remove('disabled');
-                    specialLink.removeAttribute('disabled');
+                    container.appendChild(uidCountButton);
 
-                    const specialTextField = document.getElementById('specialTextField');
-                    specialTextField.classList.remove('disabled');
-                    specialTextField.removeAttribute('disabled');
+                    if (uidCount >= 10) {
+                        const specialLink = document.getElementById('specialLink');
+                        specialLink.classList.remove('disabled');
+                        specialLink.removeAttribute('disabled');
 
-                    const submitSpecialText = document.getElementById('submitSpecialText');
-                    submitSpecialText.classList.remove('disabled');
-                    submitSpecialText.removeAttribute('disabled');
-                }
-            }).catch(error => console.error('Error fetching data:', error));
+                        const specialTextField = document.getElementById('specialTextField');
+                        specialTextField.classList.remove('disabled');
+                        specialTextField.removeAttribute('disabled');
+                    }
+                }).catch(error => console.error('Error fetching data:', error));
+            }
 
             // Handle pre-survey form submission
             const preSurveyText = document.getElementById('preSurveyText');
             const submitPreSurveyText = document.getElementById('submitPreSurveyText');
+            const specialTextField = document.getElementById('specialTextField');
+            const submitPostSurveyText = document.getElementById('submitPostSurveyText');
+
             const step2Container = document.getElementById('step2Container');
             const nextStepLink = document.getElementById('nextStepLink');
 
             submitPreSurveyText.addEventListener('click', function (event) {
-                if (!preSurveyText.value.trim()) {
-                    alert('Please fill in the field with the text that was present in the link you just visited.');
-                    preSurveyText.style.border = '2px solid red';
-                    event.preventDefault();
+                event.preventDefault(); // Prevent default form submission
+
+                // Check if preSurveyText is filled and has the correct value
+                if (!preSurveyText.value.trim() || preSurveyText.value.trim() !== "RACEFORSCIENCE") {
+                    alert('Please enter the correct value that you found from the PRE survey page.');
+                    preSurveyText.style.border = '6px solid red';
                 } else {
+                    preSurveyText.style.border = ''; // Reset border
                     preSurveyText.disabled = true;
                     submitPreSurveyText.disabled = true;
+
                     nextStepLink.classList.remove('disabled');
                     nextStepLink.removeAttribute('disabled');
                     step2Container.classList.remove('hidden');
-                    preSurveyText.style.border = ''; // Reset border
+                }
+            });
+
+            submitPostSurveyText.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Check if specialTextField has the correct value
+                if (!specialTextField.value.trim() || specialTextField.value.trim() !== "RACEFORPROGRESS") {
+                    alert('Please enter the correct value that you found from the POST survey page.');
+                    specialTextField.style.border = '6px solid red';
+                } else {
+                    specialTextField.style.border = ''; // Reset border
+                    specialTextField.disabled = true;
+                    submitPostSurveyText.disabled = true;
                 }
             });
         });</script>
+
+
 </body>
 </html>
