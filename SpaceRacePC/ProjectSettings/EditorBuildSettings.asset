@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndGameScene.unity
     guid: f228cc47bd6ec4658a6d9fa067acf64e
+  - enabled: 0
+    path: Assets/Scenes/PlayerDataMonitor.unity
+    guid: 164282a96418e564b8f566134ea317c5
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8dca6642700d60948ac4e73dcd2b2bda,
       type: 2}

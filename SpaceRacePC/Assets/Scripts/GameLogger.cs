@@ -39,4 +39,13 @@ public class GameLogger : MonoBehaviour
         byte[] logBytes = memoryStream.ToArray();
         GameObject.Find("AsyncServices").GetComponent<AsyncServices>().SavePlayerFileToCloud(fileName, logBytes);
     }
+
+    public void SaveLogAsCloudPlayerData(string key)
+    {
+        writer.Flush();
+        memoryStream.Position = 0;
+        byte[] logBytes = memoryStream.ToArray();
+        string logString = System.Text.Encoding.UTF8.GetString(logBytes);
+        GameObject.Find("AsyncServices").GetComponent<AsyncServices>().SavePlayerDataToCloud(key, logString);
+    }
 }
