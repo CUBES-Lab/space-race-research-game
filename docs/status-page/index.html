@@ -8,7 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="step-title">Step 1</h1>
+        <div class="checkbox-label">
+            <input type="checkbox" id="step1Complete" disabled>
+            <h1 class="step-title">Step 1</h1>
+        </div>
         <p>Please fill up the pre-survey form:</p>
         <a id="preSurveyLink" href="https://memphis.co1.qualtrics.com/jfe/form/SV_5uacDAOz6WHH8Oi" target="_blank" class="interactive-link">Pre-Survey Form</a>
 
@@ -19,29 +22,88 @@
         </div>
     </div>
 
-    <div class="container hidden" id="step2Container">
-        <h1 class="step-title">Step 2</h1>
-        <p>Now you can proceed to the page to finish the pilot study</p>
+    <div class="container" id="step2Container">
+        <div class="checkbox-label">
+            <input type="checkbox" id="step2Complete" disabled />
+            <h1 class="step-title">Step 2</h1>
+
+        </div>
+
+        <h3>Click the following link to play: </h3>
         <a id="nextStepLink" href="https://my.imotions.com/collect/v446/#s/ee4bf2ad-1e9f-4714-8219-ce9f69fbd817?iMotionsLocale=en-US&iMotionsStimulusBlock=Study%20flow%201" target="_blank" class="interactive-link disabled">Next Step</a>
+        <div id="uidCountContainer"></div>
+
     </div>
 
     <div class="container">
-        <h1 class="step-title"> Game Sessions </h1>
-        <div id="uidCountContainer"></div>
-        <a id="specialLink" href="https://memphis.co1.qualtrics.com/jfe/form/SV_8eRQ3j8RuX5CLNc" class="interactive-link disabled" target="_blank">Post Survey Link </a>
-        <div>
-            <textarea id="specialTextField" rows="2" cols="50" class="disabled" disabled></textarea>
-            <button id="submitPostSurveyText">Submit Text</button>
+        <div class="checkbox-label">
+            <input type="checkbox" id="step3Complete" disabled />
+            <h1 class="step-title">Step 3</h1>
+
         </div>
 
+        <a id="specialLink" href="https://memphis.co1.qualtrics.com/jfe/form/SV_8eRQ3j8RuX5CLNc" class="interactive-link disabled" target="_blank">Post Survey Link</a>
+        <div>
+            <textarea id="specialTextField" rows="2" cols="50" class="disabled" disabled></textarea>
+            <button id="submitPostSurveyText" disabled>Submit Text</button>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/public-google-sheets-parser@latest"></script>
 
-    <script>document.addEventListener("DOMContentLoaded", function () {
+    <script>// Utility functions for handling cookies
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        function getCookie(name) {
+            const cname = name + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(cname) == 0) {
+                    console.log(cname.length);
+                    return c.substring(cname.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkStepCompletion() {
+            if (getCookie("step1Complete") === "true") {
+                document.getElementById('step1Complete').checked = true;
+                document.getElementById('preSurveyText').disabled = true;
+                document.getElementById('submitPreSurveyText').disabled = true;
+                document.getElementById('preSurveyLink').classList.add('disabled');
+                document.getElementById('nextStepLink').classList.remove('disabled');
+            }
+            if (getCookie("step2Complete") === "true") {
+                document.getElementById('step2Complete').checked = true;
+
+            }
+            if (getCookie("step3Complete") === "true") {
+                document.getElementById('step3Complete').checked = true;
+                document.getElementById('specialTextField').disabled = true;
+                document.getElementById('submitPostSurveyText').disabled = true;
+                document.getElementById('specialLink').classList.add('disabled');
+            }
+        }
+        var step3 = false
+        document.addEventListener("DOMContentLoaded", function () {
+            checkStepCompletion();
+
             // Function to extract UID from URL
             function getUIDFromURL() {
+
                 const urlParams = new URLSearchParams(window.location.search);
+
                 return urlParams.get('uid') ? urlParams.get('uid').toUpperCase() : '';
             }
 
@@ -52,6 +114,7 @@
                 // Handle UID count logic
                 const parser = new PublicGoogleSheetsParser('1-ZbloFuaSxy8jxOQQlK3O6scjx5R4C6rc7tYs_ZYBKM');
                 parser.parse().then(data => {
+
                     const container = document.getElementById('uidCountContainer');
 
                     const filteredData = data.filter(item => item['UID '] == uid);
@@ -59,19 +122,37 @@
                     const uidCount = filteredData.length;
 
                     const uidCountButton = document.createElement("button");
+
+                    const specialTextField = document.getElementById('specialTextField');
+
                     uidCountButton.className = 'uid-button';
-                    uidCountButton.textContent = `You played the game ${uidCount} times`;
+
+                    uidCountButton.textContent = `You have completed ${uidCount} sessions. `;
+
+                    const specialLink = document.getElementById('specialLink');
 
                     container.appendChild(uidCountButton);
 
-                    if (uidCount >= 10) {
-                        const specialLink = document.getElementById('specialLink');
+                    if (uidCount >= 10 & step3 === "true") {
+                        // MARK STEP 2 AS COMPLETE
+                        document.getElementById('step2Complete').checked = true;
+
+
+                        // ENABLE STEP 3 LINK
                         specialLink.classList.remove('disabled');
                         specialLink.removeAttribute('disabled');
 
-                        const specialTextField = document.getElementById('specialTextField');
+                        // ENABLE POST SURVEY TEXT
                         specialTextField.classList.remove('disabled');
                         specialTextField.removeAttribute('disabled');
+
+                        // ENABLE POST SURVEY BUTTON
+                        submitPostSurveyText.disabled = false;
+
+
+
+
+                        setCookie("step2Complete", "true", 60);
                     }
                 }).catch(error => console.error('Error fetching data:', error));
             }
@@ -81,8 +162,7 @@
             const submitPreSurveyText = document.getElementById('submitPreSurveyText');
             const specialTextField = document.getElementById('specialTextField');
             const submitPostSurveyText = document.getElementById('submitPostSurveyText');
-
-            const step2Container = document.getElementById('step2Container');
+            const preSurveyLink = document.getElementById('preSurveyLink');
             const nextStepLink = document.getElementById('nextStepLink');
 
             submitPreSurveyText.addEventListener('click', function (event) {
@@ -93,16 +173,29 @@
                     alert('Please enter the correct value that you found from the PRE survey page.');
                     preSurveyText.style.border = '6px solid red';
                 } else {
-                    preSurveyText.style.border = ''; // Reset border
+                    // RESET BORDER
+                    preSurveyText.style.border = '';
+                    // DISABLE PRE SURVEY TEXTFIELD
                     preSurveyText.disabled = true;
+                    // DISABLE PRE SURVEY BUTTON
                     submitPreSurveyText.disabled = true;
+                    // DISABLE PRE SURVEY LINK
+                    preSurveyLink.classList.add('disabled');
 
+                    // MARK STEP 1 AS COMPLETE
+                    document.getElementById('step1Complete').checked = true;
+
+                    // ENABLE STEP 2 LINK
                     nextStepLink.classList.remove('disabled');
-                    nextStepLink.removeAttribute('disabled');
-                    step2Container.classList.remove('hidden');
+
+
+                    setCookie("step1Complete", "true", 60);
+
+
                 }
             });
 
+            // POST SURVEY
             submitPostSurveyText.addEventListener('click', function (event) {
                 event.preventDefault(); // Prevent default form submission
 
@@ -111,13 +204,26 @@
                     alert('Please enter the correct value that you found from the POST survey page.');
                     specialTextField.style.border = '6px solid red';
                 } else {
+                    // MARK STEP 3 AS COMPLETE
+                    document.getElementById('step3Complete').checked = true;
+
+
                     specialTextField.style.border = ''; // Reset border
+
+                    // DISABLE POST SURVEY TEXTFIELD
                     specialTextField.disabled = true;
+                    // DISABLE POST SURVEY BUTTON
                     submitPostSurveyText.disabled = true;
+
+                    // DISABLE POST SURVEY LINK
+                    document.getElementById('specialLink').classList.add('disabled');
+
+                    alert('Thank you for your participation you can play the game as many times as you want until the next two months from today.');
+                    step3 = true
+
+                    setCookie("step3Complete", "true", 60);
                 }
             });
         });</script>
-
-
 </body>
 </html>
