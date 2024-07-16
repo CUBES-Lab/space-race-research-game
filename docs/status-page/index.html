@@ -95,7 +95,8 @@
                 document.getElementById('specialLink').classList.add('disabled');
             }
         }
-        var step3 = false
+        var step3 = false // STEP 3 NOT COMPLETED
+
         document.addEventListener("DOMContentLoaded", function () {
             checkStepCompletion();
 
@@ -117,7 +118,7 @@
 
                     const container = document.getElementById('uidCountContainer');
 
-                    const filteredData = data.filter(item => item['UID '] == uid);
+                    const filteredData = data.filter(item => item['UID'] == uid);
 
                     const uidCount = filteredData.length;
 
@@ -133,7 +134,7 @@
 
                     container.appendChild(uidCountButton);
 
-                    if (uidCount >= 10 & step3 === "true") {
+                    if (uidCount == 10 & step3 === false) {
                         // MARK STEP 2 AS COMPLETE
                         document.getElementById('step2Complete').checked = true;
 
