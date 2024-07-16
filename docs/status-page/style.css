@@ -21,6 +21,7 @@ h1.step-title {
     font-size: 32px;
     margin-bottom: 20px;
     color: #f8f8f8; /* Updated color for step titles */
+    display: inline-block;
 }
 
 p {
@@ -44,7 +45,7 @@ textarea {
 
 button {
     padding: 15px 30px;
-    background-color: #008080;
+    background-color: #1C3D70;
     color: white;
     border: none;
     border-radius: 4px;
@@ -60,7 +61,7 @@ button {
     display: block;
     margin: 20px auto;
     padding: 15px 30px;
-    background-color: #28a745;
+    background-color: #004F4F;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -70,7 +71,7 @@ button {
 }
 
     .interactive-link:hover {
-        background-color: #218838;
+        background-color: #007F7F;
         transform: scale(1.05);
     }
 
@@ -80,7 +81,7 @@ button {
     }
 
 .uid-button {
-    background-color: #6f42c1;
+    background-color: #005F5F;
     color: white;
     border: none;
     padding: 20px 40px;
@@ -91,7 +92,7 @@ button {
 }
 
     .uid-button:hover {
-        background-color: #563d7c;
+        background-color: #007F7F;
     }
 
 textarea.disabled {
@@ -99,3 +100,16 @@ textarea.disabled {
     pointer-events: none;
     opacity: 0.5;
 }
+
+.checkbox-label {
+    display: inline-block;
+    align-items: center;
+    margin-top: 20px;
+}
+
+    .checkbox-label input {
+        margin-right: 15px;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+    }
