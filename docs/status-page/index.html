@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Page</title>
+    <title>Space Race Status Update</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -127,7 +127,7 @@
 
                     uidCountButton.className = 'uid-button';
 
-                    uidCountButton.textContent = `You have completed ${uidCount} sessions. `;
+                    uidCountButton.textContent = `You have completed ${uidCount} race sessions. `;
 
                     const specialLink = document.getElementById('specialLink');
 
@@ -148,9 +148,6 @@
 
                         // ENABLE POST SURVEY BUTTON
                         submitPostSurveyText.disabled = false;
-
-
-
 
                         setCookie("step2Complete", "true", 60);
                     }
