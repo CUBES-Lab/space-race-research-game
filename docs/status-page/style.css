@@ -27,6 +27,7 @@ h1.step-title {
 p {
     font-size: 20px;
     margin-bottom: 20px;
+    padding: 10px;
 }
 
 .text-boxes {
@@ -113,3 +114,6 @@ textarea.disabled {
         height: 25px;
         cursor: pointer;
     }
+.padded-label {
+    padding: 10px; /* Adjust the padding value as needed */
+}

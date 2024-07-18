@@ -150,6 +150,7 @@
 
                     const container = document.getElementById('uidCountContainer');
 
+                    // UPDATE THE FILTERED DATA WHENEVER THERE IS A ROW ADDED OR DELETED
                     const filteredData = data.filter(item => item['UID'] == uid);
 
                     const uidCount = filteredData.length;
@@ -166,7 +167,7 @@
 
                     container.appendChild(uidCountButton);
 
-                    if (uidCount == 10 & (getCookie("step3Complete") !== "true")) {
+                    if (uidCount >= 10 & (getCookie("step3Complete") !== "true")) {
                         // MARK STEP 2 AS COMPLETE
                         document.getElementById('step2Complete').checked = true;
 
@@ -258,8 +259,6 @@
                     // DISABLE POST SURVEY LINK
                     document.getElementById('specialLink').classList.add('disabled');
 
-                    //alert('Thank you for your participation you can play the game as many times as you want until the next two months from today.');
-                    
                     setCookie("step3Complete", "true", 15);
                 }
             });
