@@ -12,11 +12,11 @@
             <input type="checkbox" id="step1Complete" disabled>
             <h1 id="step1Title" class="step-title">Step 1</h1>
         </div>
-        <p>Please fill up the pre-survey form:</p>
+        <p>Please finish the pre-survey questionnaire</p>
         <a id="preSurveyLink" href="https://memphis.co1.qualtrics.com/jfe/form/SV_5uacDAOz6WHH8Oi" target="_blank" class="interactive-link">Pre-Survey Form</a>
 
         <div class="text-boxes">
-            <label for="preSurveyText">Paste text from the pre-survey form here:</label>
+            <label for="preSurveyText">Paste text from the pre-survey questionnaire here:</label>
             <textarea id="preSurveyText" rows="2" cols="50" required></textarea>
             <button id="submitPreSurveyText">Submit Text</button>
         </div>
@@ -40,11 +40,12 @@
         <div class="checkbox-label">
             <input type="checkbox" id="step3Complete" disabled />
             <h1 id="step3Title" class="step-title">Step 3</h1>
-
+            <p>Please finish the post-survey questionnaire </p>
         </div>
 
         <a id="specialLink" href="https://memphis.co1.qualtrics.com/jfe/form/SV_8eRQ3j8RuX5CLNc" class="interactive-link disabled" target="_blank">Post Survey Link</a>
         <div>
+            <label for="preSurveyText">Paste text from the post-survey questionnaire here:</label>
             <textarea id="specialTextField" rows="2" cols="50" class="disabled" disabled></textarea>
             <button id="submitPostSurveyText" disabled>Submit Text</button>
         </div>
@@ -96,8 +97,6 @@
             return null;
         }
 
-
-
         function checkStepCompletion() {
             if (getCookie("step1Complete") === "true") {
                 document.getElementById('step1Complete').checked = true;
@@ -116,7 +115,6 @@
 
             }
 
-
             if (getCookie("step3Complete") === "true") {
                 console.log("Checking the problem", document.getElementById('specialTextField'))
                 document.getElementById('step3Complete').checked = true;
@@ -125,13 +123,12 @@
                 document.getElementById('specialLink').classList.add('disabled');
                 document.getElementById('step3Title').innerHTML = "Step 3 Complete"
                 var expiryDate = getCookieExpiry("step3Complete");
-                //console.log(expiryDate);
+                
                 document.getElementById('step2Description').innerHTML = 'Thank you for your participation. You can either exit the study or continue to keep playing the game as many times until' + expiryDate + '.';
             }
 
         }
-        var step3 = false // STEP 3 NOT COMPLETED
-
+       
         document.addEventListener("DOMContentLoaded", function () {
             checkStepCompletion();
 
@@ -263,7 +260,6 @@
 
                     //alert('Thank you for your participation you can play the game as many times as you want until the next two months from today.');
                     
-
                     setCookie("step3Complete", "true", 15);
                 }
             });
