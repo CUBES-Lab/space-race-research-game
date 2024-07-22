@@ -54,6 +54,7 @@
     <script src="https://cdn.jsdelivr.net/npm/public-google-sheets-parser@latest"></script>
 
     <script>// Utility functions for handling cookies
+
         function setCookie(name, value, days) {
             const d = new Date();
             d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -106,7 +107,7 @@
                 document.getElementById('nextStepLink').classList.remove('disabled');
                 document.getElementById('step1Title').innerHTML = "Step 1 Complete"
                 var expiryDate = getCookieExpiry("step1Complete");
-                console.log(expiryDate);
+                //console.log(expiryDate);
                 document.getElementById('step2Description').innerHTML = 'Click the following link to play. You have until ' + expiryDate + ' to finish 10 sessions.';
             }
             if (getCookie("step2Complete") === "true") {
@@ -123,16 +124,19 @@
                 document.getElementById('specialLink').classList.add('disabled');
                 document.getElementById('step3Title').innerHTML = "Step 3 Complete"
                 var expiryDate = getCookieExpiry("step3Complete");
-                
-                document.getElementById('step2Description').innerHTML = 'Thank you for your participation. You can either exit the study or continue to keep playing the game as many times until' + expiryDate + '.';
+
+                document.getElementById('step2Description').innerHTML = 'Thank you for your participation.';
             }
 
         }
-       
+
         document.addEventListener("DOMContentLoaded", function () {
             checkStepCompletion();
 
-            // Function to extract UID from URL
+            // EXTRACT UID FROM URL
+            const uid = getUIDFromURL();
+
+            // FUNCTION TO EXTRACT UID FROM URL
             function getUIDFromURL() {
 
                 const urlParams = new URLSearchParams(window.location.search);
@@ -140,20 +144,31 @@
                 return urlParams.get('uid') ? urlParams.get('uid').toUpperCase() : '';
             }
 
-            // Extract UID from URL
-            const uid = getUIDFromURL();
-
+            // UPDATE UID BUTTON EVERY 5 SECONDS
             if (uid) {
+                updateUidCountButton(uid);
                 // Handle UID count logic
+                setInterval(() => {
+                    // console.log("Updating UI every 4 minutes");
+                    updateUidCountButton(uid);
+                }, 240000); // UPDATE EVERY 4 MINUTES
+
+            }
+            // UPDATE THE UID COUNT BUTTON
+            function updateUidCountButton(uid) {
                 const parser = new PublicGoogleSheetsParser('1-ZbloFuaSxy8jxOQQlK3O6scjx5R4C6rc7tYs_ZYBKM');
                 parser.parse().then(data => {
 
                     const container = document.getElementById('uidCountContainer');
 
-                    // UPDATE THE FILTERED DATA WHENEVER THERE IS A ROW ADDED OR DELETED
-                    const filteredData = data.filter(item => item['UID'] == uid);
+                    // Clear existing button
+                    container.innerHTML = '';
 
+                    // UPDATE THE FILTERED DATA WHENEVER THERE IS A ROW ADDED OR DELETED
+                    const filteredData = data.filter(item => item['UID '] == uid);
+                    console.log(filteredData);
                     const uidCount = filteredData.length;
+                    console.log(uidCount);
 
                     const uidCountButton = document.createElement("button");
 
@@ -161,7 +176,7 @@
 
                     uidCountButton.className = 'uid-button';
 
-                    uidCountButton.textContent = `You have completed ${uidCount} race sessions. `;
+                    uidCountButton.textContent = `You have completed ${uidCount} race sessions.`;
 
                     const specialLink = document.getElementById('specialLink');
 
@@ -174,7 +189,7 @@
                         // ENABLE STEP 3 LINK
                         specialLink.classList.remove('disabled');
                         specialLink.removeAttribute('disabled');
-                        console.log("Is this the reason this is happening?")
+                        //console.log("Is this the reason this is happening?")
                         // ENABLE POST SURVEY TEXT
                         specialTextField.classList.remove('disabled');
                         specialTextField.removeAttribute('disabled');
@@ -184,12 +199,19 @@
 
                         document.getElementById('step2Title').innerHTML = "Step 2 Complete"
 
-                        setCookie("step2Complete", "true", 15);
+                        setCookie("step2Complete", "true", 30);
                     }
-                }).catch(error => console.error('Error fetching data:', error));
+                }).catch(error => {
+                    console.error('Error fetching data:', error);
+                    if (error.message.includes('Quota exceeded')) {
+                        setTimeout(() => {
+                            updateUidCountButton(uid);
+                        }, 20000); // Retry after 20 seconds
+                    }
+                });
             }
 
-            // Handle pre-survey form submission
+            // HANDLE PRE-SURVEY FORM SUBMISSION
             const preSurveyText = document.getElementById('preSurveyText');
             const submitPreSurveyText = document.getElementById('submitPreSurveyText');
             const specialTextField = document.getElementById('specialTextField');
@@ -222,16 +244,16 @@
                     nextStepLink.classList.remove('disabled');
 
                     // SET COOKIE
-                    setCookie("step1Complete", "true", 15);
+                    setCookie("step1Complete", "true", 30);
 
                     // CHANGE HEADEAR TEXT
                     var date = new Date();
-                    date.setTime(date.getTime() + (15 * 24 * 60 * 60 * 1000));
+                    date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
                     var expiryDate = date.toUTCString();
 
-                    // Update the header text
+                    // UPDATE HEADER TEXT
 
-                    document.getElementById('step2Description').innerHTML = 'Click the following link to play. You have until ' + expiryDate + ' to finish 10 sessions.';
+                    document.getElementById('step2Description').innerHTML = 'Click the following link to play. You have until ' + expiryDate + ' to finish 10 or more sessions.';
 
                 }
             });
@@ -259,7 +281,14 @@
                     // DISABLE POST SURVEY LINK
                     document.getElementById('specialLink').classList.add('disabled');
 
-                    setCookie("step3Complete", "true", 15);
+                    // DISABLE STEP 2 LINK
+
+                    document.getElementById('nextStepLink').classList.add('disabled');
+
+                    // THANK PARTICIPANTS FOR THEIR PARTICIPATION
+                    document.getElementById('step2Description').innerHTML = 'Thank you for your participation.';
+
+                    setCookie("step3Complete", "true", 30);
                 }
             });
         });</script>
