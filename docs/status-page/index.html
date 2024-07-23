@@ -1,297 +1,65 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Race Status Update</title>
+    <title>Participant Status</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="checkbox-label">
-            <input type="checkbox" id="step1Complete" disabled>
-            <h1 id="step1Title" class="step-title">Step 1</h1>
-        </div>
-        <p>Please finish the pre-survey questionnaire</p>
-        <a id="preSurveyLink" href="https://memphis.co1.qualtrics.com/jfe/form/SV_5uacDAOz6WHH8Oi" target="_blank" class="interactive-link">Pre-Survey Form</a>
+    <script src="scirpt.js"></script>
 
-        <div class="text-boxes">
-            <label for="preSurveyText">Paste text from the pre-survey questionnaire here:</label>
-            <textarea id="preSurveyText" rows="2" cols="50" required></textarea>
-            <button id="submitPreSurveyText">Submit Text</button>
-        </div>
-    </div>
+    <header class="header-message">
+        Please avoid using Firefox and Brave while taking part in the study. Additionally, don't switch to another browser during the study, it will get rid of your progress.
+    </header>
+   
+    <div class="wrapper">
 
-    <div class="container" id="step2Container">
-        <div class="checkbox-label">
-            <input type="checkbox" id="step2Complete" disabled />
-            <h1 id="step2Title" class="step-title">Step 2</h1>
+        <div class="steps">
+            <div class="header-checkbox">
+                <input type="checkbox" id="step1Complete" disabled>
+                <h1 id="step1Title" class="step-title">Step One</h1>
+            </div>
 
-        </div>
+            <p>Go To Pre-Survey Questionnaire </p>
+            <a id="preSurveyLink" href="https://memphis.co1.qualtrics.com/jfe/form/SV_5uacDAOz6WHH8Oi" target="_blank" class="interactive-link">Pre-Survey Form</a>
+            <textarea id="preSurveyText" rows="2" cols="50" placeholder="Enter your pre-survey code here" required></textarea>
+            <button class ="submit-button" id="submitPreSurveyText">Submit Code</button>
 
-        <h3 id="step2Description">Click the following link to play: </h3>
-
-        <a id="nextStepLink" href="https://my.imotions.com/collect/v446/#s/ee4bf2ad-1e9f-4714-8219-ce9f69fbd817/preview_DO_NOT_SHARE_WITH_RESPONDENTS?iMotionsLocale=en-US&iMotionsStimulusBlock=Study%20flow%201" target="_blank" class="interactive-link disabled">Next Step</a>
-        <div id="uidCountContainer"></div>
-
-    </div>
-
-    <div class="container">
-        <div class="checkbox-label">
-            <input type="checkbox" id="step3Complete" disabled />
-            <h1 id="step3Title" class="step-title">Step 3</h1>
-            <p>Please finish the post-survey questionnaire </p>
         </div>
 
-        <a id="specialLink" href="https://memphis.co1.qualtrics.com/jfe/form/SV_8eRQ3j8RuX5CLNc" class="interactive-link disabled" target="_blank">Post Survey Link</a>
-        <div>
-            <label for="preSurveyText">Paste text from the post-survey questionnaire here:</label>
-            <textarea id="specialTextField" rows="2" cols="50" class="disabled" disabled></textarea>
-            <button id="submitPostSurveyText" disabled>Submit Text</button>
+        <div class="steps">
+            <div class="header-checkbox">
+                <input type="checkbox" id="step2Complete" disabled>
+                <h1 id="step2Title" class="step-title">Step Two</h1>
+            </div>
+            <p >Click the following link to play: </p>
+            <a id="nextStepLink" href="https://my.imotions.com/collect/v446/#s/ee4bf2ad-1e9f-4714-8219-ce9f69fbd817/preview_DO_NOT_SHARE_WITH_RESPONDENTS?iMotionsLocale=en-US&iMotionsStimulusBlock=Study%20flow%201" target= "_blank" class="interactive-link"> Space Race Research Game</a>
+            <p id="step2Description"> You will have to play a fun space-race-game to win your gift card.</p>
+            <button class = "submit-button" id="uidCountContainer"> Your race sessions count </button>
+
         </div>
+
+        <div class="steps">
+            <div class="header-checkbox">
+                <input type="checkbox" id="step3Complete" disabled />
+                <h1 id="step3Title" class="step-title">Step Three</h1>
+
+            </div>
+            <p>Go To Post-Survey Questionnaire </p>
+            <a id="specialLink" href="https://memphis.co1.qualtrics.com/jfe/form/SV_8eRQ3j8RuX5CLNc" class="interactive-link disabled" target="_blank">Post Survey Link</a>
+            <textarea id="specialTextField" placeholder="Enter your post-survey code here" rows="2" cols="50" required></textarea>
+            <button class="submit-button" id="submitPostSurveyText" disabled>Submit Code</button>
+
+        </div>
+
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/public-google-sheets-parser@latest"></script>
 
-    <script>// Utility functions for handling cookies
-
-        function setCookie(name, value, days) {
-            const d = new Date();
-            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-            const expires = "expires=" + d.toUTCString();
-            document.cookie = name + "=" + value + ";" + expires + ";path=/";
-
-            document.cookie = name + "_expiry=" + d.toUTCString() + ";path=/";
-        }
-
-        function getCookie(name) {
-            const cname = name + "=";
-            const decodedCookie = decodeURIComponent(document.cookie);
-            const ca = decodedCookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(cname) == 0) {
-
-                    return c.substring(cname.length, c.length);
-                }
-            }
-            return "";
-        }
-
-        function getCookieExpiry(cookieName) {
-            const name = cookieName + "_expiry=";
-            const decodedCookie = decodeURIComponent(document.cookie);
-            const cookieArray = decodedCookie.split(';');
-
-            for (let i = 0; i < cookieArray.length; i++) {
-                let cookie = cookieArray[i];
-                while (cookie.charAt(0) === ' ') {
-                    cookie = cookie.substring(1);
-                }
-                if (cookie.indexOf(name) === 0) {
-                    return cookie.substring(name.length, cookie.length);
-                }
-            }
-            return null;
-        }
-
-        function checkStepCompletion() {
-            if (getCookie("step1Complete") === "true") {
-                document.getElementById('step1Complete').checked = true;
-                document.getElementById('preSurveyText').disabled = true;
-                document.getElementById('submitPreSurveyText').disabled = true;
-                document.getElementById('preSurveyLink').classList.add('disabled');
-                document.getElementById('nextStepLink').classList.remove('disabled');
-                document.getElementById('step1Title').innerHTML = "Step 1 Complete"
-                var expiryDate = getCookieExpiry("step1Complete");
-                //console.log(expiryDate);
-                document.getElementById('step2Description').innerHTML = 'Click the following link to play. You have until ' + expiryDate + ' to finish 10 sessions.';
-            }
-            if (getCookie("step2Complete") === "true") {
-                document.getElementById('step2Complete').checked = true;
-                document.getElementById('step2Title').innerHTML = "Step 2 Complete"
-
-            }
-
-            if (getCookie("step3Complete") === "true") {
-                console.log("Checking the problem", document.getElementById('specialTextField'))
-                document.getElementById('step3Complete').checked = true;
-                document.getElementById('specialTextField').disabled = true;
-                document.getElementById('submitPostSurveyText').disabled = true;
-                document.getElementById('specialLink').classList.add('disabled');
-                document.getElementById('step3Title').innerHTML = "Step 3 Complete"
-                var expiryDate = getCookieExpiry("step3Complete");
-
-                document.getElementById('step2Description').innerHTML = 'Thank you for your participation.';
-                document.getElementById('nextStepLink').classList.add('disabled');
-            }
-
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            checkStepCompletion();
-
-            // EXTRACT UID FROM URL
-            const uid = getUIDFromURL();
-
-            // FUNCTION TO EXTRACT UID FROM URL
-            function getUIDFromURL() {
-
-                const urlParams = new URLSearchParams(window.location.search);
-
-                return urlParams.get('uid') ? urlParams.get('uid').toUpperCase() : '';
-            }
-
-            // UPDATE UID BUTTON EVERY 5 SECONDS
-            if (uid) {
-                updateUidCountButton(uid);
-                // Handle UID count logic
-                setInterval(() => {
-                    // console.log("Updating UI every 4 minutes");
-                    updateUidCountButton(uid);
-                }, 240000); // UPDATE EVERY 4 MINUTES
-
-            }
-            // UPDATE THE UID COUNT BUTTON
-            function updateUidCountButton(uid) {
-                const parser = new PublicGoogleSheetsParser('1-ZbloFuaSxy8jxOQQlK3O6scjx5R4C6rc7tYs_ZYBKM');
-                parser.parse().then(data => {
-
-                    const container = document.getElementById('uidCountContainer');
-
-                    // Clear existing button
-                    container.innerHTML = '';
-
-                    // UPDATE THE FILTERED DATA WHENEVER THERE IS A ROW ADDED OR DELETED
-                    const filteredData = data.filter(item => item['UID '] == uid);
-                    console.log(filteredData);
-                    const uidCount = filteredData.length;
-                    console.log(uidCount);
-
-                    const uidCountButton = document.createElement("button");
-
-                    const specialTextField = document.getElementById('specialTextField');
-
-                    uidCountButton.className = 'uid-button';
-
-                    uidCountButton.textContent = `You have completed ${uidCount} race sessions.`;
-
-                    const specialLink = document.getElementById('specialLink');
-
-                    container.appendChild(uidCountButton);
-
-                    if (uidCount >= 10 & (getCookie("step3Complete") !== "true")) {
-                        // MARK STEP 2 AS COMPLETE
-                        document.getElementById('step2Complete').checked = true;
-
-                        // ENABLE STEP 3 LINK
-                        specialLink.classList.remove('disabled');
-                        specialLink.removeAttribute('disabled');
-                        //console.log("Is this the reason this is happening?")
-                        // ENABLE POST SURVEY TEXT
-                        specialTextField.classList.remove('disabled');
-                        specialTextField.removeAttribute('disabled');
-
-                        // ENABLE POST SURVEY BUTTON
-                        submitPostSurveyText.disabled = false;
-
-                        document.getElementById('step2Title').innerHTML = "Step 2 Complete"
-
-                        setCookie("step2Complete", "true", 30);
-                    }
-                }).catch(error => {
-                    console.error('Error fetching data:', error);
-                    if (error.message.includes('Quota exceeded')) {
-                        setTimeout(() => {
-                            updateUidCountButton(uid);
-                        }, 20000); // Retry after 20 seconds
-                    }
-                });
-            }
-
-            // HANDLE PRE-SURVEY FORM SUBMISSION
-            const preSurveyText = document.getElementById('preSurveyText');
-            const submitPreSurveyText = document.getElementById('submitPreSurveyText');
-            const specialTextField = document.getElementById('specialTextField');
-            const submitPostSurveyText = document.getElementById('submitPostSurveyText');
-            const preSurveyLink = document.getElementById('preSurveyLink');
-            const nextStepLink = document.getElementById('nextStepLink');
-
-            submitPreSurveyText.addEventListener('click', function (event) {
-                event.preventDefault(); // Prevent default form submission
-
-                // Check if preSurveyText is filled and has the correct value
-                if (!preSurveyText.value.trim() || preSurveyText.value.trim() !== "RACEGAME") {
-                    alert('Please enter the correct value that you found from the PRE survey page.');
-                    preSurveyText.style.border = '6px solid red';
-                } else {
-                    // RESET BORDER
-                    preSurveyText.style.border = '';
-                    // DISABLE PRE SURVEY TEXTFIELD
-                    preSurveyText.disabled = true;
-                    // DISABLE PRE SURVEY BUTTON
-                    submitPreSurveyText.disabled = true;
-                    // DISABLE PRE SURVEY LINK
-                    preSurveyLink.classList.add('disabled');
-
-                    // MARK STEP 1 AS COMPLETE
-                    document.getElementById('step1Complete').checked = true;
-                    document.getElementById('step1Title').innerHTML = "Step 1 Complete"
-
-                    // ENABLE STEP 2 LINK
-                    nextStepLink.classList.remove('disabled');
-
-                    // SET COOKIE
-                    setCookie("step1Complete", "true", 30);
-
-                    // CHANGE HEADEAR TEXT
-                    var date = new Date();
-                    date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
-                    var expiryDate = date.toUTCString();
-
-                    // UPDATE HEADER TEXT
-
-                    document.getElementById('step2Description').innerHTML = 'Click the following link to play. You have until ' + expiryDate + ' to finish 10 or more sessions.';
-
-                }
-            });
-
-            // POST SURVEY
-            submitPostSurveyText.addEventListener('click', function (event) {
-                event.preventDefault(); // Prevent default form submission
-
-                // Check if specialTextField has the correct value
-                if (!specialTextField.value.trim() || specialTextField.value.trim() !== "RACESCOMPLETE") {
-                    alert('Please enter the correct value that you found from the POST survey page.');
-                    specialTextField.style.border = '6px solid red';
-                } else {
-                    // MARK STEP 3 AS COMPLETE
-                    document.getElementById('step3Complete').checked = true;
-                    document.getElementById('step1Title').innerHTML = "Step 3 Complete"
-
-                    specialTextField.style.border = ''; // Reset border
-
-                    // DISABLE POST SURVEY TEXTFIELD
-                    specialTextField.disabled = true;
-                    // DISABLE POST SURVEY BUTTON
-                    submitPostSurveyText.disabled = true;
-
-                    // DISABLE POST SURVEY LINK
-                    document.getElementById('specialLink').classList.add('disabled');
-
-                    // DISABLE STEP 2 LINK
-
-                    document.getElementById('nextStepLink').classList.add('disabled');
-
-                    // THANK PARTICIPANTS FOR THEIR PARTICIPATION
-                    document.getElementById('step2Description').innerHTML = 'Thank you for your participation.';
-
-                    setCookie("step3Complete", "true", 30);
-                }
-            });
-        });</script>
+  <footer class="footer-message">
+    The website uses cookies to track your progress. Please don't change to a different browser while the study is in progress.
+  </footer>
 </body>
 </html>

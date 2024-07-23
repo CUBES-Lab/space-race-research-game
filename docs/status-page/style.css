@@ -1,119 +1,137 @@
-﻿body {
-    background-image: url('A_high-quality_image_of_deep_space_with_vibrant_bl.png');
-    background-size: cover;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    text-align: center;
+﻿
+*,
+* ::before,
+* ::after {
+    box-sizing: border-box;
+
+}
+
+*  {
     margin: 0;
-    padding: 0;
 }
 
-.container {
-    background-color: rgba(0, 0, 0, 0.7);
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 700px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+body {
+    font-family: system-ui;
+    margin-inline: auto;
+    width: 90%;
+    
 }
 
-h1.step-title {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #f8f8f8; /* Updated color for step titles */
-    display: inline-block;
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    padding: 5px;
+    gap: 1rem;
+    margin-top: 5rem;
+
 }
 
-p {
-    font-size: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
-}
-
-.text-boxes {
-    margin-top: 20px;
-}
-
-textarea {
-    width: 80%;
-    padding: 15px;
+.steps {
     border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    resize: none;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: left;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 5;
 }
 
-button {
-    padding: 15px 30px;
-    background-color: #1C3D70;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-    button:disabled {
-        background-color: grey;
-    }
-
-.interactive-link {
-    display: block;
-    margin: 20px auto;
-    padding: 15px 30px;
-    background-color: #004F4F;
-    color: white;
-    text-align: center;
-    text-decoration: none;
+.header-message {
+    width: 90%;
+    background-color: #cab2e9;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 18px;
+    color: #000000af;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    
 }
 
-    .interactive-link:hover {
-        background-color: #007F7F;
+.interactive-link  {
+    display: inline-block;
+    margin: 10px 0;
+    padding:  20px;
+    border-radius: 15px;
+    background-color: #1b8585;
+    color: white;
+    text-decoration: none;
+    
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 22px;
+}
+
+    .interactive-link:hover{
+        background-color: #004F4F;
         transform: scale(1.05);
     }
-
     .interactive-link.disabled {
         background-color: grey;
         pointer-events: none;
-    }
+    }   
 
-.uid-button {
-    background-color: #005F5F;
+.submit-button{
+    display: inline-block; 
+    border-radius: 15px;
+    background-color: #6797c1;
+    padding: 20px; 
     color: white;
-    border: none;
-    padding: 20px 40px;
-    font-size: 24px;
-    cursor: default;
-    transition: background-color 0.3s ease;
-    margin: 20px 0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 22px;
+
 }
-
-    .uid-button:hover {
-        background-color: #007F7F;
-    }
-
+   .submit-button:hover {
+        background-color: #015896;
+        transform: scale(1.05);
+   
+   }
+   .submit-button:disabled {
+       background-color: grey;
+       pointer-events: none;
+   }
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin-top: 10px;
+    font-size: 18px;
+   
+}
 textarea.disabled {
     background-color: grey;
     pointer-events: none;
     opacity: 0.5;
 }
 
-.checkbox-label {
-    display: inline-block;
-    align-items: center;
-    margin-top: 20px;
+.header-checkbox {
+    display: flex;
+    padding: 10px;
+    
 }
 
-    .checkbox-label input {
-        margin-right: 15px;
-        width: 25px;
-        height: 25px;
-        cursor: pointer;
-    }
-.padded-label {
-    padding: 10px; /* Adjust the padding value as needed */
+.header-checkbox input {
+    margin-right: 10px;
+    padding: 25px;
+    width: 35px;
+    
 }
+
+.footer-message {
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 15px; /* Increased padding for a larger footer */
+    font-size: 18px; /* Larger font size */
+    position: fixed;
+    bottom: 0;
+    border-radius: 5px;
+    font-weight: bold;
+    
+}
+
+
