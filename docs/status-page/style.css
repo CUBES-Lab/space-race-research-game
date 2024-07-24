@@ -105,17 +105,17 @@ textarea.disabled {
     background-color: grey;
     pointer-events: none;
     opacity: 0.5;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .header-checkbox {
     display: flex;
-    padding: 10px;
+    padding: 5px;
     
 }
 
 .header-checkbox input {
     margin-right: 10px;
-    padding: 25px;
     width: 35px;
     
 }
