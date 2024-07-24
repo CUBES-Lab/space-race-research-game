@@ -1,6 +1,4 @@
 
-  
-
 function setCookie(name, value, days) {
     const d = new Date();
     d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -50,14 +48,15 @@ function checkStepCompletion() {
         document.getElementById('submitPreSurveyText').disabled = true;
         document.getElementById('preSurveyLink').classList.add('disabled');
         document.getElementById('nextStepLink').classList.remove('disabled');
-        document.getElementById('step1Title').innerHTML = "Step 1 Complete"
+        document.getElementById('step1Title').innerHTML = "Step One Complete"
         var expiryDate = getCookieExpiry("step1Complete");
 
         document.getElementById('step2Description').innerHTML = 'You have until ' + expiryDate + ' to finish 10 sessions. Once you finish playing 10 sessions and complete the post survey you will win your giftcard!';
+        
     }
     if (getCookie("step2Complete") === "true") {
         document.getElementById('step2Complete').checked = true;
-        document.getElementById('step2Title').innerHTML = "Step 2 Complete"
+        document.getElementById('step2Title').innerHTML = "Step Two Complete"
 
     }
 
@@ -67,7 +66,7 @@ function checkStepCompletion() {
         document.getElementById('specialTextField').disabled = true;
         document.getElementById('submitPostSurveyText').disabled = true;
         document.getElementById('specialLink').classList.add('disabled');
-        document.getElementById('step3Title').innerHTML = "Step 3 Complete"
+        document.getElementById('step3Title').innerHTML = "Step Three Complete"
         var expiryDate = getCookieExpiry("step3Complete");
 
         document.getElementById('step2Description').innerHTML = 'Thank you for your participation. Keep an eye on your email to get your gift card!';
@@ -112,10 +111,11 @@ document.addEventListener("DOMContentLoaded", function () {
             container.innerHTML = '';
 
             // UPDATE THE FILTERED DATA WHENEVER THERE IS A ROW ADDED OR DELETED
-            const filteredData = data.filter(item => item['UID '] == uid);
-            console.log(filteredData);
+      
+            const filteredData = data.filter(item => item['UID'] == uid);
+            
             const uidCount = filteredData.length;
-            console.log(uidCount);
+           
 
             const specialTextField = document.getElementById('specialTextField');
 
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // ENABLE STEP 3 LINK
                 specialLink.classList.remove('disabled');
                 specialLink.removeAttribute('disabled');
-                console.log("Is this the reason this is happening?")
+                //console.log("Is this the reason this is happening?")
                 // ENABLE POST SURVEY TEXT
                 specialTextField.classList.remove('disabled');
                 specialTextField.removeAttribute('disabled');
@@ -142,7 +142,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 // ENABLE POST SURVEY BUTTON
                 submitPostSurveyText.disabled = false;
 
-                document.getElementById('step2Title').innerHTML = "Step 2 Complete"
+                document.getElementById('step2Title').innerHTML = "Step Two Complete";
+                
 
                 setCookie("step2Complete", "true", 30);
             }
@@ -171,9 +172,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!preSurveyText.value.trim() || preSurveyText.value.trim() !== "RACEGAME") {
             alert('Please enter the correct value that you found from the PRE survey page.');
             preSurveyText.style.border = '6px solid red';
+            preSurveyText.value = "";
         } else {
             // RESET BORDER
             preSurveyText.style.border = '';
+            // CLEAR THE VALUE IN THE TEXTFIELD
+            preSurveyText.value = ""
             // DISABLE PRE SURVEY TEXTFIELD
             preSurveyText.disabled = true;
             // DISABLE PRE SURVEY BUTTON
@@ -183,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // MARK STEP 1 AS COMPLETE
             document.getElementById('step1Complete').checked = true;
-            document.getElementById('step1Title').innerHTML = "Step 1 Complete"
+            document.getElementById('step1Title').innerHTML = "Step One Complete"
 
             // ENABLE STEP 2 LINK
             nextStepLink.classList.remove('disabled');
@@ -211,12 +215,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!specialTextField.value.trim() || specialTextField.value.trim() !== "RACESCOMPLETE") {
             alert('Please enter the correct value that you found from the POST survey page.');
             specialTextField.style.border = '6px solid red';
+            specialTextField.value = "";
         } else {
             // MARK STEP 3 AS COMPLETE
             document.getElementById('step3Complete').checked = true;
             document.getElementById('step1Title').innerHTML = "Step 3 Complete"
 
             specialTextField.style.border = ''; // Reset border
+
+            // CLEAR THE POST SURVEY VALUE
+            specialTextField.value = "";
 
             // DISABLE POST SURVEY TEXTFIELD
             specialTextField.disabled = true;
