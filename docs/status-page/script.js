@@ -112,10 +112,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // UPDATE THE FILTERED DATA WHENEVER THERE IS A ROW ADDED OR DELETED
       
-            const filteredData = data.filter(item => item['UID'] == uid);
+            const filteredData = data.filter(item => item['UID '] == uid);
             
             const uidCount = filteredData.length;
-           
+            console.log(uidCount)
 
             const specialTextField = document.getElementById('specialTextField');
 
