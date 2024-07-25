@@ -109,10 +109,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Clear existing button
             container.innerHTML = '';
-
-            // UPDATE THE FILTERED DATA WHENEVER THERE IS A ROW ADDED OR DELETED
       
-            const filteredData = data.filter(item => item['UID '] == uid || item['UID'] == uid);
+            const filteredData = data.filter(item => {
+                return Object.keys(item).some(key => key.trim() === 'UID' && item[key] == uid);
+            });
             
             const uidCount = filteredData.length;
             console.log(uidCount)
