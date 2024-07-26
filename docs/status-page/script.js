@@ -249,3 +249,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const questions = document.querySelectorAll('.q');
+    const answers = document.querySelectorAll('.a');
+    const arrows = document.querySelectorAll('.arrow');
+
+    for (let i = 0; i < questions.length; i++) {
+        questions[i].addEventListener('click', () => {
+            answers[i].classList.toggle('a-opened');
+            arrows[i].classList.toggle('arrow-rotated');
+        });
+    }
+});
