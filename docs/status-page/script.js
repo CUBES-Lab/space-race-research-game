@@ -23,6 +23,14 @@ function getCookie(name) {
     }
     return "";
 }
+function updateIDMessage() {
+    
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const uid = urlParams.get('uid') ? urlParams.get('uid').toUpperCase() : '';
+
+    document.getElementById('unique-ID').textContent = uid;
+}
 
 function getCookieExpiry(cookieName) {
     const name = cookieName + "_expiry=";
@@ -77,7 +85,11 @@ function checkStepCompletion() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    // TRACK STEPS COMPLETION
     checkStepCompletion();
+    
+    // SHOW UNIQUE ID ON TOP
+    updateIDMessage();
 
     // EXTRACT UID FROM URL
     const uid = getUIDFromURL();
