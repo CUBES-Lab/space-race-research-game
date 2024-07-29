@@ -29,7 +29,7 @@ public class AsyncServices : MonoBehaviour
         try
         {
             var options = new InitializationOptions();
-            options.SetEnvironmentName("testing");
+            options.SetEnvironmentName("study");
 
             await UnityServices.InitializeAsync(options);
             await SignInAnonymously();
