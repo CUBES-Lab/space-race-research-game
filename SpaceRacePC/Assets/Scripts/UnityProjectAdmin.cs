@@ -10,7 +10,10 @@ using Unity.Services.Core;
 
 public class UnityProjectAdmin : MonoBehaviour
 {
-    private string UNITY_CLOUD_SAVE_API_URL = "https://services.api.unity.com/cloud-save/v1/data/projects/ac2f7ffa-9123-4ef4-a8d0-184f20dfb589/environments/0f50aec4-88b5-4bf3-a515-571c0f4ac2d1/";
+    // This is for the "testing" environment
+    //private string UNITY_CLOUD_SAVE_API_URL = "https://services.api.unity.com/cloud-save/v1/data/projects/ac2f7ffa-9123-4ef4-a8d0-184f20dfb589/environments/0f50aec4-88b5-4bf3-a515-571c0f4ac2d1/";
+    // This is for the "study" environment
+    private string UNITY_CLOUD_SAVE_API_URL = "https://services.api.unity.com/cloud-save/v1/data/projects/ac2f7ffa-9123-4ef4-a8d0-184f20dfb589/environments/eaad21c2-190f-4c43-9518-f14e9fdda4f4/";
     private Dictionary<string, int> playerDataCounts;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
