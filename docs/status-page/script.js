@@ -207,8 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setCookie("step1Complete", "true", 30);
 
             // CHANGE HEADEAR TEXT
-            var date = new Date();
-            date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+	    var date = new Date("2024-08-07T23:59:59Z");
             var expiryDate = date.toUTCString();
 
             // UPDATE HEADER TEXT
