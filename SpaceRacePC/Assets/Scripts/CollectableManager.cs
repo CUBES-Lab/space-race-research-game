@@ -33,9 +33,11 @@ public class CollectableManager : MonoBehaviour
     private bool doRemoveCollectables;
     private bool doPlaceCollectables;
 
+    private bool doLogCollectablePositions;
+
     // Start is called before the first frame update
     void Start()
-    {        
+    {
         collectables = new List<GameObject>();
         if (finishLine == null)
         {
@@ -55,6 +57,8 @@ public class CollectableManager : MonoBehaviour
         doRemoveCollectables = false;
         doPlaceCollectables = false;
 
+        doLogCollectablePositions = false;
+
         collectParent = new GameObject("Collectables");
         PlaceCollectables();
     }
@@ -71,6 +75,15 @@ public class CollectableManager : MonoBehaviour
         {
             PlaceCollectables();
             doPlaceCollectables = false;
+        }
+        
+        if (doLogCollectablePositions)
+        {
+            for (int i = 0; i < collectables.Count; i++)
+            {
+                GameObject.Find("GameLogger").GetComponent<GameLogger>().LogEvent("Init Coin", collectables[i].transform.position.ToString());
+            }
+            doLogCollectablePositions = false;
         }
     }
 
@@ -192,6 +205,8 @@ public class CollectableManager : MonoBehaviour
             }
         }
         AdjustCollectables();
+
+        doLogCollectablePositions = true;
     }
 
 
