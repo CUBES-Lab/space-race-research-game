@@ -1,6 +1,6 @@
 
 function setCookie(name, value, days) {
-    const d = new Date("2024-08-07T23:59:59Z");
+    const d = new Date("2024-08-08T11:59:59.000Z");
     const expires = "expires=" + d.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
     document.cookie = name + "_expiry=" + d.toUTCString() + ";path=/";
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setCookie("step1Complete", "true", 30);
 
             // CHANGE HEADEAR TEXT
-	    var date = new Date("2024-08-07T23:59:59Z");
+	    var date = new Date("2024-08-08T11:59:59.000Z");
             var expiryDate = date.toUTCString();
 
             // UPDATE HEADER TEXT
