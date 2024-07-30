@@ -59,7 +59,7 @@ function checkStepCompletion() {
         document.getElementById('step1Title').innerHTML = "Step One Complete"
         var expiryDate = getCookieExpiry("step1Complete");
 
-        document.getElementById('step2Description').innerHTML = 'You have until ' + expiryDate + ' to finish 10 sessions. Once you finish playing 10 sessions and complete the post survey you will win your giftcard!';
+        document.getElementById('step2Description').innerHTML = 'You have until ' + expiryDate + ' to finish 10 sessions. Once you finish playing at least 10 sessions and complete the post survey you will receive your giftcard.';
         
     }
     if (getCookie("step2Complete") === "true") {
@@ -77,7 +77,7 @@ function checkStepCompletion() {
         document.getElementById('step3Title').innerHTML = "Step Three Complete"
         var expiryDate = getCookieExpiry("step3Complete");
 
-        document.getElementById('step2Description').innerHTML = 'Thank you for your participation. Keep an eye on your email to get your gift card!';
+        document.getElementById('step2Description').innerHTML = 'Thank you for your participation! Keep an eye on your email to get your gift card.';
         document.getElementById('nextStepLink').classList.add('disabled');
         document.getElementById('uidCountContainer').disabled = true;
     }
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('nextStepLink').classList.add('disabled');
 
             // THANK PARTICIPANTS FOR THEIR PARTICIPATION
-            document.getElementById('step2Description').innerHTML = 'Thank you for your participation. Keep an eye on your email to get your gift card!';
+            document.getElementById('step2Description').innerHTML = 'Thank you for your participation! Keep an eye on your email to get your gift card.';
 
             // DISABLE RACE SESSION COUNT BUTTON
 
