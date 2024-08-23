@@ -218,7 +218,10 @@ textarea.disabled {
     transform: rotate(90deg);
 }
 
+.warning-message {
+    color: red;
 
+}
 
 
 
