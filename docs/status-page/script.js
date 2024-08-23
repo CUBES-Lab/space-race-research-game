@@ -62,8 +62,10 @@ function checkStepCompletion() {
         
         var expiryDate = getCookieExpiry("step1Complete");
 
-        document.getElementById('step2Description').innerHTML = 'You have until ' + expiryDate + ' to finish 10 sessions. Once you finish playing at least 10 sessions and complete the post survey, head back to Prolific to claim your reward.';
-        
+        // Change Here
+
+        document.getElementById('step2Description').innerHTML = 'You have until Sun August 24 GMT 17:00 to finish playing 10 race sessions.'
+        // 'You have until ' + expiryDate + ' to finish 10 sessions. Once you finish playing at least 10 sessions and complete the post survey, head back to Prolific to claim your reward.';
     }
     if (getCookie("step2Complete") === "true") {
         document.getElementById('step2Complete').checked = true;
@@ -223,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // UPDATE HEADER TEXT
 
-            document.getElementById('step2Description').innerHTML = 'You have until ' + expiryDate + ' to finish 10 or more race sessions.';
+            document.getElementById('step2Description').innerHTML = 'You have until Sun 24 August 17:00:00 GMT to finish 10 or more race sessions.'; // Change Again
 
         }
 
