@@ -62,7 +62,7 @@ function checkStepCompletion() {
         
         var expiryDate = getCookieExpiry("step1Complete");
 
-        document.getElementById('step2Description').innerHTML = 'You have until ' + expiryDate + ' to finish 10 sessions. Once you finish playing at least 10 sessions and complete the post survey you will receive your giftcard.';
+        document.getElementById('step2Description').innerHTML = 'You have until ' + expiryDate + ' to finish 10 sessions. Once you finish playing at least 10 sessions and complete the post survey, head back to Prolific to claim your reward.';
         
     }
     if (getCookie("step2Complete") === "true") {
@@ -82,7 +82,7 @@ function checkStepCompletion() {
         document.getElementById('step2Description').innerHTML = 'Thank you for your participation! Head back to Prolific to claim your reward.';
         document.getElementById('nextStepLink').classList.add('disabled');
         document.getElementById('uidCountContainer').disabled = true;
-        document.getElementById('prolific').disabled = false;
+        document.getElementById('prolific').classList.remove('disabled');
     }
 
 }
@@ -213,10 +213,12 @@ document.addEventListener("DOMContentLoaded", function () {
             // ENABLE STEP 2 LINK
             nextStepLink.classList.remove('disabled');
 
-            
+            // SET COOKIE
+            setCookie("step1Complete", "true", 30);
 
             // CHANGE HEADEAR TEXT
-	    var date = new Date("2024-08-08T11:59:59.000Z");
+	        var date = new Date();
+            date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
             var expiryDate = date.toUTCString();
 
             // UPDATE HEADER TEXT
@@ -225,8 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        // SET COOKIE
-        setCookie("step1Complete", "true", 30);
+        
     });
 
     // POST SURVEY
