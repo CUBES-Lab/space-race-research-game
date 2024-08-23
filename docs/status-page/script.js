@@ -75,10 +75,10 @@ function checkStepCompletion() {
         document.getElementById('specialLink').classList.add('disabled');
         document.getElementById('step3Title').innerHTML = "Step Three Complete"
         var expiryDate = getCookieExpiry("step3Complete");
-
-        document.getElementById('step2Description').innerHTML = 'Thank you for your participation! Keep an eye on your email to get your gift card.';
+        document.getElementById('step2Description').innerHTML = 'Thank you for your participation! Head back to Prolific to claim your reward.';
         document.getElementById('nextStepLink').classList.add('disabled');
         document.getElementById('uidCountContainer').disabled = true;
+        document.getElementById('prolific').disabled = false;
     }
 
 }
@@ -249,11 +249,13 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('nextStepLink').classList.add('disabled');
 
             // THANK PARTICIPANTS FOR THEIR PARTICIPATION
-            document.getElementById('step2Description').innerHTML = 'Thank you for your participation! Keep an eye on your email to get your gift card.';
+            document.getElementById('step2Description').innerHTML = 'Thank you for your participation! Head back to Prolific for your reward.';
 
             // DISABLE RACE SESSION COUNT BUTTON
 
             document.getElementById('uidCountContainer').disabled = true;
+
+            document.getElementById('prolific').classList.remove('disabled');
 
             setCookie("step3Complete", "true", 30);
         }

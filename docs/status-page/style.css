@@ -34,7 +34,7 @@ body {
     text-align: left;
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 5;
+    grid-row: span 6;
 }
 
 .header-message {
@@ -135,8 +135,8 @@ textarea.disabled {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     text-align: center;
-    padding: 15px; 
-    font-size: 22px; 
+    padding: 10px; 
+    font-size: 18px; 
     position: fixed;
     bottom: 0;
     border-radius: 5px;
