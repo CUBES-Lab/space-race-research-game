@@ -56,6 +56,7 @@ function checkStepCompletion() {
         document.getElementById('preSurveyLink').classList.add('disabled');
         document.getElementById('nextStepLink').classList.remove('disabled');
         document.getElementById('step1Title').innerHTML = "Step One Complete"
+        
         var expiryDate = getCookieExpiry("step1Complete");
 
         document.getElementById('step2Description').innerHTML = 'You have until ' + expiryDate + ' to finish 10 sessions. Once you finish playing at least 10 sessions and complete the post survey you will receive your giftcard.';
@@ -176,6 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const preSurveyLink = document.getElementById('preSurveyLink');
     const nextStepLink = document.getElementById('nextStepLink');
 
+
     submitPreSurveyText.addEventListener('click', function (event) {
         event.preventDefault(); // Prevent default form submission
 
@@ -203,8 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // ENABLE STEP 2 LINK
             nextStepLink.classList.remove('disabled');
 
-            // SET COOKIE
-            setCookie("step1Complete", "true", 30);
+            
 
             // CHANGE HEADEAR TEXT
 	    var date = new Date("2024-08-08T11:59:59.000Z");
@@ -215,6 +216,9 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('step2Description').innerHTML = 'You have until ' + expiryDate + ' to finish 10 or more race sessions.';
 
         }
+
+        // SET COOKIE
+        setCookie("step1Complete", "true", 30);
     });
 
     // POST SURVEY
@@ -255,7 +259,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             document.getElementById('uidCountContainer').disabled = true;
 
+            // ENABLE PROLIFIC LINK
+
             document.getElementById('prolific').classList.remove('disabled');
+
+            // SET STEP 3 COOKIE
 
             setCookie("step3Complete", "true", 30);
         }
