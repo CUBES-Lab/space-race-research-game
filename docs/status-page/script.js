@@ -1,6 +1,7 @@
 
 function setCookie(name, value, days) {
-    const d = new Date("2024-08-08T11:59:59.000Z");
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
     const expires = "expires=" + d.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
     document.cookie = name + "_expiry=" + d.toUTCString() + ";path=/";
@@ -49,7 +50,9 @@ function getCookieExpiry(cookieName) {
 }
 
 function checkStepCompletion() {
+    
     if (getCookie("step1Complete") === "true") {
+        
         document.getElementById('step1Complete').checked = true;
         document.getElementById('preSurveyText').disabled = true;
         document.getElementById('submitPreSurveyText').disabled = true;
@@ -189,17 +192,22 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             // RESET BORDER
             preSurveyText.style.border = '';
+            
             // CLEAR THE VALUE IN THE TEXTFIELD
             preSurveyText.value = ""
+            
             // DISABLE PRE SURVEY TEXTFIELD
             preSurveyText.disabled = true;
+            
             // DISABLE PRE SURVEY BUTTON
             submitPreSurveyText.disabled = true;
+            
             // DISABLE PRE SURVEY LINK
             preSurveyLink.classList.add('disabled');
 
             // MARK STEP 1 AS COMPLETE
             document.getElementById('step1Complete').checked = true;
+            
             document.getElementById('step1Title').innerHTML = "Step One Complete"
 
             // ENABLE STEP 2 LINK
