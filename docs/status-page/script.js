@@ -64,7 +64,7 @@ function checkStepCompletion() {
 
         // Change Here
 
-        document.getElementById('step2Description').innerHTML = 'You have until Sun August 24 GMT 17:00 to finish playing 10 race sessions.'
+        document.getElementById('step2Description').innerHTML = 'You have until Monday August 26 GMT 17:00 to finish playing 10 or more race sessions.'
         // 'You have until ' + expiryDate + ' to finish 10 sessions. Once you finish playing at least 10 sessions and complete the post survey, head back to Prolific to claim your reward.';
     }
     if (getCookie("step2Complete") === "true") {
@@ -223,9 +223,9 @@ document.addEventListener("DOMContentLoaded", function () {
             date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
             var expiryDate = date.toUTCString();
 
-            // UPDATE HEADER TEXT
+            // Updated cookie data to Monday for second round of data collection
 
-            document.getElementById('step2Description').innerHTML = 'You have until Sun 24 August 17:00:00 GMT to finish 10 or more race sessions.'; // Change Again
+            document.getElementById('step2Description').innerHTML = 'You have until Mon 26 August 17:00:00 GMT to finish 10 or more race sessions.'; 
 
         }
 
@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('nextStepLink').classList.add('disabled');
 
             // THANK PARTICIPANTS FOR THEIR PARTICIPATION
-            document.getElementById('step2Description').innerHTML = 'Thank you for your participation! Head back to Prolific for your reward.';
+            document.getElementById('step2Description').innerHTML = 'Thank you for your participation! Head back to Prolific for your compensation.';
 
             // DISABLE RACE SESSION COUNT BUTTON
 
@@ -280,6 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 document.addEventListener("DOMContentLoaded", function() {
     const questions = document.querySelectorAll('.q');
     const answers = document.querySelectorAll('.a');
