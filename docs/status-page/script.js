@@ -32,6 +32,14 @@ function updateIDMessage() {
     document.getElementById('unique-ID').textContent = uid;
 }
 
+function updateLabvancedURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const uid = urlParams.get('uid') ? urlParams.get('uid').toUpperCase() : '';
+
+    document.getElementById('nextStepLink').href += "&UID=" + uid;
+}
+
 function getCookieExpiry(cookieName) {
     const name = cookieName + "_expiry=";
     const decodedCookie = decodeURIComponent(document.cookie);
@@ -95,6 +103,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // SHOW UNIQUE ID ON TOP
     updateIDMessage();
+
+    // ADD UID TO THE LABVANCED URL
+    updateLabvancedURL();
 
     // EXTRACT UID FROM URL
     const uid = getUIDFromURL();
