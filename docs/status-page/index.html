@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Participant Status</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.7/jquery.timeago.min.js"></script>
+    <script type="text/javascript">
+        var zeropad = function (num) {
+          return ((num < 10) ? '0' : '') + num;
+        };
+
+        var iso8601 = function (date) {
+          return date.getUTCFullYear()
+            + "-" + zeropad(date.getUTCMonth()+1)
+            + "-" + zeropad(date.getUTCDate())
+            + "T" + zeropad(date.getUTCHours())
+            + ":" + zeropad(date.getUTCMinutes())
+            + ":" + zeropad(date.getUTCSeconds()) + "Z";
+        };
+
+        jQuery(document).ready(function($) {
+            $('time.loaded').attr("datetime", iso8601(new Date()));
+            $(".timeago").timeago();
+        });
+    </script>
 </head>
 <body>
     
@@ -47,7 +68,7 @@
             <a id="nextStepLink" href="https://www.labvanced.com/player.html?id=72373" target= "_blank" class="interactive-link disabled"> Space Race Research Game </a>
             
             <p id="step2Description"> You will have to play a fun Space Race Research Game to recieve your compensation from Prolific. </p>
-            <textarea class = "submit-button" id="uidCountContainer"> Your race sessions count </textarea>
+            <div class = "submit-button" class="uidCountContainer"><p id="uidCountContainer">Your race sessions count.</p><p class="uidCountContainer">Last refresh: <time class="loaded timeago" datetime=""></time> </p> </div>
 
         </div>
 
